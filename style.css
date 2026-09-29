@@ -279,3 +279,40 @@
   }
 
 }
+@media(max-width:550px){
+  .products{
+    grid-template-columns:repeat(2,1fr)!important;
+    gap:10px!important;
+  }
+
+  .product-img{
+    height:230px!important;
+    width:100%!important;
+    overflow:hidden!important;
+  }
+
+  .product-img img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    display:block!important;
+  }
+
+  .product-info{
+    padding:10px!important;
+  }
+
+  .product-info h3{
+    font-size:17px!important;
+  }
+
+  .price{
+    font-size:10px!important;
+  }
+
+  .card-actions button{
+    padding:7px 4px!important;
+    font-size:6px!important;
+  }
+}
+

@@ -71,3 +71,75 @@ button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:
 @media(max-width:1100px){.brand{min-width:350px}.brand-name strong{font-size:25px}.nav{gap:24px}.nav a{font-size:14px}.header-actions{margin-left:5px}.hero-inner{grid-template-columns:42% 58%}.hero-watches{gap:5px}.benefits{padding-left:3%;padding-right:3%}}
 @media(max-width:800px){.top-bar{font-size:8px;letter-spacing:1px}.top-bar div:nth-child(2){display:none}.header-inner{min-height:92px;padding:0 18px}.brand{min-width:0;flex:1}.brand-mark{font-size:45px;width:58px}.brand-name strong{font-size:21px;letter-spacing:2px}.brand-name small{font-size:7px;letter-spacing:2px}.brand-divider{height:45px}.nav{display:none}.header-actions{margin-left:auto}.hero-inner{grid-template-columns:1fr;min-height:auto;padding:55px 20px 30px}.hero-copy{text-align:center;padding:0}.hero-kicker{justify-content:center;font-size:10px}.hero-copy h1{font-size:48px}.hero-slogan{font-size:14px}.hero-cta{margin:auto}.hero-watches{height:330px;margin-top:20px}.hero-watch-card{height:250px!important}.brand-strip{grid-template-columns:1fr 1fr;padding:20px}.brand-strip i{display:none}.brand-strip div{padding:13px 5px;border-bottom:1px solid #3a3a3a}.benefits{grid-template-columns:1fr 1fr;padding:0}.benefits>div{padding:18px 8px;border-bottom:1px solid #ddd}.section{padding:65px 14px}.section-heading{display:block}.section-heading>p{margin-top:15px}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-info{padding:11px 9px}.product-name{font-size:13px}.product-actions{gap:4px}.product-view,.product-add{min-height:31px;font-size:7px}.feature-strip{grid-template-columns:1fr;padding:30px 18px}.about{grid-template-columns:1fr;gap:35px}.about-image{min-height:350px}.about-content h2{font-size:43px}.contact-inner{grid-template-columns:1fr;gap:30px}.contact h2{font-size:47px}.footer-inner{padding:30px 18px;flex-direction:column;align-items:flex-start}.modal-content{grid-template-columns:1fr}.modal-image{min-height:300px;height:300px}.modal-info{padding:30px 22px}}
 @media(max-width:430px){.brand-name small{display:none}.brand-name strong{font-size:17px}.brand-mark{font-size:37px;width:47px}.brand-divider{display:none}.top-bar div{display:block!important;font-size:8px}.top-bar div:not(:first-child){display:none!important}.header-actions{gap:9px}.search-toggle{font-size:27px}.hero-copy h1{font-size:39px}.hero-watches{gap:2px;height:280px}.hero-watch-card{height:220px!important}.brand-strip strong{font-size:16px}.benefits{grid-template-columns:1fr}.benefits>div{justify-content:flex-start;padding-left:25px;border-right:0}.products-grid{gap:7px}}
+
+
+/* ===== LUXURY REFERENCE MATCH ===== */
+.top-bar{min-height:60px;background:#fff;border-bottom:1px solid #e5e2dc;padding:0 3.8%;font-size:11px;letter-spacing:1.7px}
+.top-bar div{display:flex;align-items:center;justify-content:center;gap:5px;border-right:1px solid #d7d3cb}
+.top-bar div:last-child{border-right:0}
+.header{position:relative;background:#fff;box-shadow:none}
+.header-inner{min-height:125px;max-width:none;padding:0 3.8%;gap:25px}
+.menu-button{margin-right:55px}
+.brand{min-width:500px;gap:18px}
+.brand-mark{position:relative;width:76px;height:84px;display:flex;align-items:flex-end;justify-content:center;letter-spacing:-8px;font-family:Georgia,serif}
+.brand-mark i{position:absolute;top:-2px;left:22px;font-size:29px;line-height:1;font-style:normal;letter-spacing:0}
+.brand-mark b{font-size:67px;font-weight:400;line-height:.9}
+.brand-name strong{font-size:33px;letter-spacing:4px}
+.brand-name small{font-size:10px;letter-spacing:4px}
+.nav{gap:48px}
+.nav a{font-size:17px}
+.header-actions{gap:20px}
+.search-toggle{font-size:39px}
+.bag-button{font-size:30px}
+
+.hero{min-height:430px;background:#090807}
+.hero-inner{min-height:430px;max-width:none;padding:35px 4.5% 20px;grid-template-columns:35% 65%;gap:0;background:
+radial-gradient(ellipse at 67% 58%,rgba(166,108,39,.30),transparent 33%),
+radial-gradient(ellipse at 96% 40%,rgba(72,43,18,.42),transparent 26%),
+linear-gradient(105deg,#070706 0%,#18110c 52%,#050504 100%)}
+.hero-copy{padding-left:0}
+.hero-kicker{font-size:12px;letter-spacing:4px;margin-bottom:20px}
+.hero-kicker span{width:38px}
+.hero-copy h1{font-size:clamp(42px,4.1vw,69px);line-height:1.02}
+.hero-slogan{margin:22px 0 26px;font-size:15px;letter-spacing:1px}
+.hero-cta{padding:14px 18px;gap:40px}
+.hero-watches{height:365px;gap:4px;padding:0 1% 2px}
+.hero-watch-card{height:285px!important;width:24%;filter:drop-shadow(0 17px 13px rgba(0,0,0,.58))}
+.hero-watch-card:nth-child(2){height:310px!important}
+.hero-watch-card:nth-child(3){height:320px!important}
+.hero-watch-card:nth-child(4){height:280px!important}
+.hero-watch-card img{object-fit:contain;mix-blend-mode:multiply;filter:drop-shadow(0 8px 7px rgba(0,0,0,.5))}
+
+.brand-strip{padding:17px 8%;min-height:116px;background:#070707}
+.brand-strip strong{font-size:21px}
+.brand-strip small{font-size:8px;letter-spacing:2.2px}
+.brand-strip i{height:42px;background:#bd8c3d}
+
+.benefits{min-height:91px;padding:15px 4.2%;background:#fff;grid-template-columns:repeat(4,1fr)}
+.benefits>div{justify-content:flex-start;padding:0 28px}
+.benefits span{font-size:32px;color:#bd8129}
+.benefits strong{font-size:10px;letter-spacing:1.5px}
+.benefits small{font-size:10px;font-style:italic}
+
+.collection.section{max-width:none;padding:38px 3.8% 70px}
+.section-heading{display:block;text-align:center;margin-bottom:25px}
+.section-heading .eyebrow{position:relative;letter-spacing:3px;margin-bottom:8px}
+.section-heading .eyebrow:before,.section-heading .eyebrow:after{content:"";display:inline-block;width:85px;height:1px;background:#d09a43;vertical-align:middle;margin:0 15px}
+.section-heading h2{font-size:29px;letter-spacing:2px}
+.section-heading>p{display:none}
+.filters{justify-content:center;margin-bottom:24px}
+.products-grid{grid-template-columns:repeat(5,1fr);gap:15px}
+.product-card{border:1px solid #eee}
+.product-image{aspect-ratio:.86}
+
+@media(max-width:1100px){
+  .menu-button{margin-right:20px}.brand{min-width:390px}.nav{gap:25px}.hero-inner{grid-template-columns:38% 62%}
+  .products-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:800px){
+  .top-bar{min-height:42px;padding:0 10px}.top-bar div{font-size:7px;letter-spacing:.8px}.top-bar div:nth-child(n+3){display:none}
+  .header-inner{min-height:88px;padding:0 15px}.menu-button{margin-right:4px}.brand{min-width:0}.brand-mark{width:52px;height:62px}.brand-mark b{font-size:46px}.brand-mark i{left:14px;font-size:20px}.brand-name strong{font-size:19px}.brand-name small{font-size:6px}
+  .hero{min-height:0}.hero-inner{grid-template-columns:1fr;min-height:0;padding:42px 18px 18px}.hero-copy h1{font-size:43px}.hero-watches{height:290px;margin-top:20px}.hero-watch-card{height:225px!important}.hero-watch-card:nth-child(2){height:245px!important}.hero-watch-card:nth-child(3){height:255px!important}
+  .brand-strip{min-height:0;padding:12px 15px}.benefits{grid-template-columns:1fr 1fr}.benefits>div{padding:12px 9px}
+  .collection.section{padding:35px 12px 55px}.section-heading h2{font-size:24px}.section-heading .eyebrow:before,.section-heading .eyebrow:after{width:35px;margin:0 8px}.products-grid{grid-template-columns:repeat(2,1fr)}
+}

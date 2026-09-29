@@ -17,7 +17,7 @@ const products = [
     type: "Luxury",
     price: 6800,
     badge: "FEATURED",
-    image: "images/blue-leather.jpg",
+    image: "blue-leather.jpg",
     description:
       "A bold royal-blue timepiece with a premium leather look, designed for a confident and elegant style."
   },
@@ -29,7 +29,7 @@ const products = [
     type: "Classic",
     price: 2999,
     badge: "NEW",
-    image: "images/blue-dial.jpg",
+    image: "blue-dial.jpg",
     description:
       "A clean classic watch with a striking blue dial and timeless everyday styling."
   },
@@ -41,7 +41,7 @@ const products = [
     type: "Modern",
     price: 4000,
     badge: "POPULAR",
-    image: "images/silver-chronograph.jpg",
+    image: "silver-chronograph.jpg",
     description:
       "A modern silver chronograph-inspired design that adds a sharp finish to any outfit."
   },
@@ -53,7 +53,7 @@ const products = [
     type: "Set",
     price: 7200,
     badge: "LIMITED",
-    image: "images/silver-set.jpg",
+    image: "silver-set.jpg",
     description:
       "A premium silver watch set created for a refined and sophisticated look."
   },
@@ -65,7 +65,7 @@ const products = [
     type: "Luxury",
     price: 2800,
     badge: "NEW",
-    image: "images/white-dial.jpg",
+    image: "white-dial.jpg",
     description:
       "A clean white-dial design with an elegant appearance, perfect for everyday wear."
   }

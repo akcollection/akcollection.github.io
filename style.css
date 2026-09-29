@@ -204,16 +204,3 @@ linear-gradient(105deg,#070706 0%,#18110c 52%,#050504 100%)}
   .hero-watch-visual{height:350px}
   .hero-spec{display:none}
 }
-
-
-/* ===== SINGLE ROLEX HERO ===== */
-.hero-rolex{position:relative;width:min(520px,92%);height:470px;display:flex;align-items:center;justify-content:center;z-index:2}
-.hero-rolex img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 28px 25px rgba(0,0,0,.62));mix-blend-mode:screen}
-.hero-stage .hero-glow{width:430px;height:430px}
-@media(max-width:800px){
-  .hero-rolex{height:390px;width:min(380px,96%)}
-  .hero-stage .hero-glow{width:320px;height:320px}
-}
-@media(max-width:430px){
-  .hero-rolex{height:340px}
-}

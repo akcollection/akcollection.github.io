@@ -1,10 +1,10 @@
 const WHATSAPP_NUMBER = "923709039540"; // AK Collection WhatsApp: 03709039540
 const products=[
 {id:1,name:"Royal Blue",cat:"Men • Luxury",price:6800,type:["men","luxury"],badge:"FEATURED",image:"blue-leather.jpg",material:"Leather strap",style:"Luxury",description:"A rich blue statement piece with a refined rectangular profile, made for formal looks and special occasions."},
-{id:2,name:"Azure Steel",cat:"Men • Classic",price:2999,type:["men","classic"],badge:"NEW",image:"blue-dial.jpg",material:"Steel bracelet",style:"Classic",description:"A clean blue-dial design with a polished steel look that works effortlessly for everyday wear."},
-{id:3,name:"Silver Chrono",cat:"Men • Modern",price:4000,type:["men","luxury"],badge:"POPULAR",image:"silver-chronograph.jpg",material:"Steel finish",style:"Modern",description:"A bold silver chronograph-inspired design for a confident, contemporary presence."},
-{id:4,name:"Prestige Set",cat:"Luxury • Set",price:7200,type:["classic","luxury","set"],badge:"LIMITED",image:"silver-set.jpg",material:"Premium set",style:"Gift Set",description:"A coordinated silver and white watch set, ideal for gifting or building a versatile collection."},
-{id:5,name:"White Elegance",cat:"Classic • Luxury",price:2800,type:["classic","luxury"],badge:"NEW",image:"white-dial.jpg",material:"Classic finish",style:"Elegant",description:"A clean white-dial look with timeless styling for simple, polished outfits."}
+{id:2,name:"Rolex unisex",cat:"Men • Classic",price:2999,type:["men","classic"],badge:"NEW",image:"blue-dial.jpg",material:"Steel bracelet",style:"Classic",description:"A clean blue-dial design with a polished steel look that works effortlessly for everyday wear."},
+{id:3,name:"Hublot",cat:"Men • Modern",price:4000,type:["men","luxury"],badge:"POPULAR",image:"silver-chronograph.jpg",material:"Steel finish",style:"Modern",description:"A bold silver chronograph-inspired design for a confident, contemporary presence."},
+{id:4,name:"Rolex Set",cat:"Luxury • Set",price:7200,type:["classic","luxury","set"],badge:"LIMITED",image:"silver-set.jpg",material:"Premium set",style:"Gift Set",description:"A coordinated silver and white watch set, ideal for gifting or building a versatile collection."},
+{id:5,name:"patek phillipe",cat:"Classic • Luxury",price:2800,type:["classic","luxury"],badge:"NEW",image:"white-dial.jpg",material:"Classic finish",style:"Elegant",description:"A clean white-dial look with timeless styling for simple, polished outfits."}
 ];
 let cart=JSON.parse(localStorage.getItem("akCart")||"[]"), activeFilter="all", searchTerm="";
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s), money=n=>`PKR ${n.toLocaleString("en-PK")}`;

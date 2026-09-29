@@ -1,38 +1,34 @@
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#090909;color:#f3eee5;font-family:Montserrat,Arial,sans-serif;line-height:1.6}.announcement{height:34px;background:#c8a45b;color:#080808;text-align:center;font-size:10px;font-weight:700;letter-spacing:2px;padding:8px}.header{height:84px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid #26231e;background:#090909ee;backdrop-filter:blur(12px);position:sticky;top:0;z-index:20}.logo{font-family:"Cormorant Garamond",serif;font-size:29px;color:#d7b66c;text-decoration:none;font-weight:700;letter-spacing:2px}.logo span{display:block;font:600 7px Montserrat,sans-serif;letter-spacing:4px;color:#f1eadc;margin-top:-6px}.nav{display:flex;gap:30px}.nav a,.footer a{color:#cfc7b8;text-decoration:none;font-size:10px;text-transform:uppercase;letter-spacing:2px}.nav a:hover,.footer a:hover{color:#d7b66c}.header-actions{display:flex;gap:18px;align-items:center}.cart-btn,.menu-btn{background:none;border:0;color:#eee;font:600 10px Montserrat;letter-spacing:2px;cursor:pointer}.cart-btn span{display:inline-flex;background:#c8a45b;color:#111;width:20px;height:20px;border-radius:50%;align-items:center;justify-content:center;margin-left:5px}.menu-btn{display:none;font-size:22px}.hero{min-height:680px;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 9%;overflow:hidden;background:radial-gradient(circle at 75% 48%,#2a251c 0,#100f0d 28%,#090909 63%)}.hero-content{animation:fadeUp .8s ease both}.eyebrow{color:#c8a45b;font-size:10px;letter-spacing:4px;font-weight:700;margin-bottom:18px}.hero h1{font:600 clamp(68px,8vw,122px)/.78 "Cormorant Garamond",serif;letter-spacing:-4px}.hero h1 em,.section h2 em,.statement em,.contact h2 em{color:#c8a45b;font-weight:500}.hero-copy{max-width:480px;color:#a9a398;font-size:13px;margin:30px 0}.hero-actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap}.gold-btn{display:inline-flex;align-items:center;justify-content:center;gap:35px;padding:15px 20px;background:#c8a45b;color:#0b0b0b;text-decoration:none;border:1px solid #c8a45b;font-size:10px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:.25s}.gold-btn:hover{background:transparent;color:#c8a45b}.text-btn{color:#c8a45b;text-decoration:none;font-size:9px;font-weight:700;letter-spacing:2px;border-bottom:1px solid #5b4826;padding-bottom:5px}.hero-note{margin-top:24px;color:#77736b;font-size:9px;letter-spacing:1px}.hero-watch{height:500px;position:relative;display:flex;align-items:center;justify-content:center;animation:float 5s ease-in-out infinite}.watch-face{position:relative;width:280px;height:280px;border-radius:50%;border:8px solid #a47e39;background:radial-gradient(circle,#2b2924,#0e0e0d 72%);box-shadow:0 0 50px #c8a45b22,inset 0 0 20px #000;z-index:2}.watch-face:before{content:"";position:absolute;inset:8px;border:1px solid #8c6d39;border-radius:50%}.watch-strap{position:absolute;width:115px;height:170px;background:linear-gradient(90deg,#171717,#37342d,#171717);left:calc(50% - 57px);z-index:0}.top-strap{top:0;border-radius:30px 30px 10px 10px}.bottom-strap{bottom:0;border-radius:10px 10px 30px 30px}.watch-mark{position:absolute;color:#d9b76d;font:600 12px "Cormorant Garamond";left:50%;transform:translateX(-50%)}.top{top:17px}.bottom{bottom:17px}.left{left:18px;top:50%;transform:translateY(-50%)}.right{right:18px;left:auto;top:50%;transform:translateY(-50%)}.brand-mark{position:absolute;top:85px;width:100%;text-align:center;color:#d7b66c;font:700 13px "Cormorant Garamond";letter-spacing:2px}.brand-mark small{font:6px Montserrat;letter-spacing:2px}.hand{position:absolute;left:50%;bottom:50%;transform-origin:bottom;border-radius:5px;background:#eee}.hour{height:58px;width:5px;transform:rotate(38deg)}.minute{height:86px;width:3px;transform:rotate(125deg)}.second{height:94px;width:1px;background:#c8a45b;transform:rotate(225deg)}.center-dot{position:absolute;width:10px;height:10px;background:#c8a45b;border-radius:50%;left:calc(50% - 5px);top:calc(50% - 5px)}.watch-glow{position:absolute;width:400px;height:400px;border-radius:50%;background:#c8a45b0c;filter:blur(35px)}.trust-bar{border-top:1px solid #24211c;border-bottom:1px solid #24211c;display:grid;grid-template-columns:repeat(4,1fr);padding:22px 7%;gap:20px}.trust-bar div{display:flex;gap:13px;align-items:center;justify-content:center;border-right:1px solid #25221d}.trust-bar div:last-child{border:0}.trust-bar strong{color:#c8a45b;font:600 18px "Cormorant Garamond"}.trust-bar span{font-size:9px;color:#8e8980;text-transform:uppercase;letter-spacing:1px}.section{padding:105px 8%}.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:38px}.section h2,.statement h2,.about h2,.contact h2{font:600 clamp(42px,5vw,66px)/.95 "Cormorant Garamond";letter-spacing:-1px}.section-heading>p{color:#77736b;font-size:11px;text-align:right}.shop-tools{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}.search-wrap{display:flex;align-items:center;gap:10px;border-bottom:1px solid #39342c;padding:9px 0;width:260px}.search-wrap span{font-size:20px;color:#c8a45b}.search-wrap input{background:none;border:0;outline:0;color:#eee;width:100%;font:11px Montserrat}.search-wrap input::placeholder{color:#69655e}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:none;border:1px solid #37322a;color:#77736b;padding:9px 14px;text-transform:uppercase;font-size:8px;letter-spacing:2px;cursor:pointer}.filter.active,.filter:hover{border-color:#c8a45b;color:#c8a45b}.results-line{display:flex;justify-content:space-between;align-items:center;margin:20px 0 10px;color:#68645d;font-size:9px}.clear-btn{background:none;border:0;color:#c8a45b;text-transform:uppercase;font-size:8px;letter-spacing:2px;cursor:pointer}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:#10100f;border:1px solid #24221e;transition:.3s;position:relative;overflow:hidden}.product:hover{transform:translateY(-5px);border-color:#5a4727;box-shadow:0 18px 45px #0007}.product-img{height:380px;background:#111;position:relative;overflow:hidden}.real-watch{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}.product:hover .real-watch{transform:scale(1.04)}.badge{position:absolute;top:13px;left:13px;background:#c8a45b;color:#090909;font-size:8px;font-weight:700;padding:5px 8px;letter-spacing:1px;z-index:2}.product-info{padding:18px}.product-info h3{font:600 27px "Cormorant Garamond";color:#eee}.category{font-size:8px;color:#77736b;letter-spacing:2px;text-transform:uppercase}.price{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:#c8a45b;font-size:13px;font-weight:600}.card-actions{display:flex;gap:7px}.add,.details-btn{border:1px solid #4a3b24;background:transparent;color:#c8a45b;padding:8px 10px;font-size:8px;letter-spacing:1px;cursor:pointer}.add:hover,.details-btn:hover{background:#c8a45b;color:#111}.statement{min-height:430px;display:flex;align-items:center;padding:80px 9%;background:linear-gradient(100deg,#11100e,#090909 60%);border-top:1px solid #211f1a;border-bottom:1px solid #211f1a}.about{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}.about-image{height:480px;background:linear-gradient(145deg,#1d1a15,#0b0b0a);display:flex;align-items:center;justify-content:center;border:1px solid #30291d}.about-card{width:240px;height:320px;border:1px solid #9c793d;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#c8a45b;font:700 70px "Cormorant Garamond";letter-spacing:4px;box-shadow:0 0 60px #c8a45b0c}.about-card span{font:7px Montserrat;letter-spacing:4px}.about-copy>p:not(.eyebrow){color:#99938a;font-size:13px;max-width:500px;margin-top:28px}.signature{margin-top:35px;color:#c8a45b;font:600 27px "Cormorant Garamond";letter-spacing:2px}.signature span{font:7px Montserrat;display:block;letter-spacing:4px}.center-heading{text-align:center;margin-bottom:45px}.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.review-grid article{background:#10100f;border:1px solid #24221e;padding:30px}.stars{color:#c8a45b;letter-spacing:4px;margin-bottom:18px}.review-grid p{color:#aaa398;font:500 20px/1.35 "Cormorant Garamond";margin-bottom:20px}.review-grid strong{font-size:9px;letter-spacing:2px;color:#77736b}.faq{background:#0c0c0b}.faq-list{max-width:850px;margin:auto;border-top:1px solid #2a2722}.faq-list details{border-bottom:1px solid #2a2722;padding:20px 0}.faq-list summary{cursor:pointer;list-style:none;color:#ddd;font:600 21px "Cormorant Garamond"}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:'+';float:right;color:#c8a45b}.faq-list details[open] summary:after{content:'−'}.faq-list p{color:#858078;font-size:11px;max-width:720px;margin-top:12px}.contact{display:grid;grid-template-columns:1fr 1fr;gap:80px;background:#0d0d0c}.contact-box{border-left:1px solid #383128;padding:25px 0 25px 50px}.contact-box p{color:#99938a;font-size:12px;max-width:390px;margin-bottom:25px}.contact-box small{display:block;color:#77736b;font-size:9px;letter-spacing:2px;margin-top:15px}.footer{padding:55px 8%;border-top:1px solid #24221e;display:flex;justify-content:space-between;align-items:end;color:#625e56;font-size:9px;letter-spacing:1px}.footer p{margin-top:12px;font-size:7px;letter-spacing:3px}.footer-links{display:flex;gap:20px;flex-wrap:wrap}.cart{position:fixed;right:-450px;top:0;width:min(450px,100%);height:100vh;background:#10100f;z-index:50;border-left:1px solid #393025;transition:.35s;padding:28px;display:flex;flex-direction:column}.cart.open{right:0}.cart-head{display:flex;justify-content:space-between;border-bottom:1px solid #302c26;padding-bottom:20px}.cart-head h3,.checkout-card h3{font:600 30px "Cormorant Garamond"}.cart-head button,.modal-close{background:none;border:0;color:#fff;font-size:25px;cursor:pointer}.cart-items{flex:1;overflow:auto;padding:20px 0}.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;border-bottom:1px solid #25231f;padding:16px 0}.cart-row h4{font:20px "Cormorant Garamond"}.cart-row small{color:#888;font-size:8px;letter-spacing:1px}.qty{display:flex;align-items:center;gap:8px;margin-top:9px}.qty button{width:24px;height:24px;background:#181816;border:1px solid #3b3327;color:#c8a45b;cursor:pointer}.remove{background:none;border:0;color:#c8a45b;cursor:pointer;font-size:9px;margin-top:7px}.empty{color:#77736b;font-size:12px;text-align:center;margin-top:40px}.cart-footer{border-top:1px solid #302c26;padding-top:20px}.cart-footer>div{display:flex;justify-content:space-between;margin-bottom:18px;color:#999;font-size:12px}.cart-footer strong{color:#c8a45b}.full{width:100%;justify-content:center}.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:40}.overlay.show{display:block}.product-modal,.checkout-modal{display:none;position:fixed;inset:0;background:#000c;z-index:70;align-items:center;justify-content:center;padding:20px}.product-modal.show,.checkout-modal.show{display:flex}.modal-card,.checkout-card{width:min(850px,100%);max-height:90vh;overflow:auto;background:#11110f;border:1px solid #493a24;position:relative;padding:28px}.modal-close{position:absolute;right:18px;top:12px;z-index:2}.modal-product{display:grid;grid-template-columns:1fr 1fr;gap:28px}.modal-product img{width:100%;height:450px;object-fit:cover}.modal-info{padding:25px 10px}.modal-info h3{font:600 50px "Cormorant Garamond"}.modal-price{color:#c8a45b;font-size:18px;margin:10px 0 20px}.specs{border-top:1px solid #302c26;border-bottom:1px solid #302c26;padding:14px 0;margin:20px 0}.specs div{display:flex;justify-content:space-between;padding:5px 0;color:#888;font-size:10px}.checkout-card{max-width:520px}.checkout-help{color:#888;font-size:11px;margin:10px 0 22px}.checkout-card form{display:grid;gap:14px}.checkout-card label{color:#aaa;font-size:9px;text-transform:uppercase;letter-spacing:2px}.checkout-card input,.checkout-card textarea{display:block;width:100%;margin-top:7px;background:#0a0a09;border:1px solid #302c26;color:#eee;padding:12px;outline:0;font:11px Montserrat}.checkout-card input:focus,.checkout-card textarea:focus{border-color:#c8a45b}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}```css
 @media(max-width:550px){
 
-  /* ===== HEADER ===== */
+  /* MOBILE HEADER */
   .announcement{
     height:30px;
     padding:7px 5px;
     font-size:7px;
     letter-spacing:1.5px;
-    white-space:nowrap;
-    overflow:hidden;
   }
 
   .header{
-    height:70px;
+    height:68px;
     padding:0 5%;
   }
 
   .logo{
     font-size:24px;
-    letter-spacing:1.5px;
   }
 
   .logo span{
     font-size:6px;
     letter-spacing:3px;
-    margin-top:-4px;
   }
 
   .header-actions{
-    gap:12px;
+    gap:10px;
   }
 
   .cart-btn{
-    font-size:9px;
+    font-size:8px;
   }
 
   .menu-btn{
@@ -41,21 +37,17 @@
   }
 
   .nav{
-    top:70px;
-    padding:22px 6%;
+    top:68px;
+    padding:20px;
     gap:18px;
   }
 
-  .nav a{
-    font-size:10px;
-  }
 
-
-  /* ===== HERO / HOME ===== */
+  /* MOBILE HOME */
   .hero{
     min-height:auto;
     grid-template-columns:1fr;
-    padding:65px 7% 35px;
+    padding:55px 6% 20px;
     text-align:center;
   }
 
@@ -65,53 +57,30 @@
     align-items:center;
   }
 
-  .eyebrow{
-    font-size:8px;
-    letter-spacing:3px;
-    margin-bottom:14px;
-  }
-
   .hero h1{
-    font-size:64px;
-    line-height:.82;
+    font-size:62px;
+    line-height:.84;
     letter-spacing:-2px;
   }
 
   .hero-copy{
     font-size:11px;
-    line-height:1.7;
-    margin:22px 0;
     max-width:330px;
+    margin:20px 0;
   }
 
   .hero-actions{
     justify-content:center;
-    gap:12px;
-  }
-
-  .gold-btn{
-    padding:13px 16px;
-    font-size:8px;
-    gap:15px;
-  }
-
-  .text-btn{
-    font-size:8px;
-  }
-
-  .hero-note{
-    font-size:8px;
-    margin-top:18px;
   }
 
   .hero-watch{
     height:300px;
     transform:scale(.72);
-    margin:-10px 0 -35px;
+    margin:-15px 0 -35px;
   }
 
 
-  /* ===== TRUST BAR ===== */
+  /* TRUST */
   .trust-bar{
     grid-template-columns:repeat(2,1fr);
     padding:18px 5%;
@@ -120,45 +89,27 @@
 
   .trust-bar div{
     min-height:55px;
-    padding:8px;
     border:0!important;
     justify-content:center;
-    text-align:center;
     flex-direction:column;
     gap:2px;
-  }
-
-  .trust-bar strong{
-    font-size:16px;
-  }
-
-  .trust-bar span{
-    font-size:7px;
+    text-align:center;
   }
 
 
-  /* ===== COLLECTION ===== */
+  /* COLLECTION */
   .section{
-    padding:65px 5%;
+    padding:55px 4%;
   }
 
   .section-heading{
     display:block;
-    margin-bottom:28px;
-  }
-
-  .section h2,
-  .statement h2,
-  .about h2,
-  .contact h2{
-    font-size:43px;
-    line-height:.95;
+    margin-bottom:25px;
   }
 
   .section-heading>p{
     text-align:left;
-    margin-top:14px;
-    font-size:9px;
+    margin-top:12px;
   }
 
   .shop-tools{
@@ -167,43 +118,50 @@
 
   .search-wrap{
     width:100%;
-    margin-bottom:15px;
+    margin-bottom:12px;
   }
 
   .filters{
-    width:100%;
     gap:6px;
   }
 
-  .filter{
-    padding:8px 10px;
-    font-size:7px;
-  }
 
-
-  /* ===== WATCHES: 2 SIDE BY SIDE ===== */
+  /* PRODUCTS - 2 PER ROW */
   .products{
+    display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
+    gap:12px 8px;
   }
 
   .product{
     min-width:0;
+    border:1px solid #24221e;
   }
 
+  /* BIG PRODUCT IMAGE */
   .product-img{
-    height:205px;
+    width:100%;
+    height:220px;
+    background:#111;
+  }
+
+  .real-watch{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:5px;
   }
 
   .badge{
     top:7px;
     left:7px;
-    padding:4px 5px;
     font-size:6px;
+    padding:4px 6px;
   }
 
+  /* PRODUCT INFO */
   .product-info{
-    padding:10px;
+    padding:11px 9px 12px;
   }
 
   .category{
@@ -212,106 +170,54 @@
   }
 
   .product-info h3{
-    font-size:19px;
-    line-height:1;
+    font-size:18px;
+    line-height:1.05;
     margin-top:3px;
   }
 
   .price{
     display:block;
-    margin-top:9px;
+    margin-top:8px;
     font-size:10px;
   }
 
   .card-actions{
     display:flex;
-    gap:4px;
-    margin-top:8px;
+    gap:5px;
+    margin-top:9px;
   }
 
   .add,
   .details-btn{
     flex:1;
-    padding:7px 4px;
+    padding:8px 3px;
     font-size:6px;
-    letter-spacing:.7px;
+    letter-spacing:.5px;
   }
 
 
-  /* ===== STATEMENT ===== */
-  .statement{
-    min-height:300px;
-    padding:55px 7%;
-  }
-
-
-  /* ===== ABOUT ===== */
+  /* ABOUT */
   .about{
     grid-template-columns:1fr;
-    gap:35px;
+    gap:30px;
   }
 
   .about-image{
     height:300px;
   }
 
-  .about-card{
-    width:190px;
-    height:250px;
-    font-size:58px;
-  }
 
-  .about-copy>p:not(.eyebrow){
-    font-size:11px;
-    line-height:1.8;
-    margin-top:20px;
-  }
-
-  .signature{
-    margin-top:25px;
-    font-size:24px;
-  }
-
-
-  /* ===== REVIEWS ===== */
-  .center-heading{
-    margin-bottom:30px;
-  }
-
+  /* REVIEWS */
   .review-grid{
     grid-template-columns:1fr;
     gap:10px;
   }
 
-  .review-grid article{
-    padding:22px;
-  }
 
-  .review-grid p{
-    font-size:18px;
-  }
-
-
-  /* ===== FAQ ===== */
-  .faq-list details{
-    padding:17px 0;
-  }
-
-  .faq-list summary{
-    font-size:18px;
-    padding-right:10px;
-  }
-
-  .faq-list p{
-    font-size:10px;
-    line-height:1.7;
-  }
-
-
-  /* ===== CONTACT ===== */
+  /* CONTACT */
   .contact{
     grid-template-columns:1fr;
-    gap:30px;
+    gap:25px;
   }
 
   .contact-box{
@@ -320,51 +226,31 @@
     padding:25px 0;
   }
 
-  .contact-box p{
-    font-size:11px;
-    line-height:1.7;
-  }
 
-
-  /* ===== FOOTER ===== */
+  /* FOOTER */
   .footer{
-    padding:40px 6%;
-    display:flex;
+    padding:40px 5%;
     flex-direction:column;
     align-items:center;
     text-align:center;
-    gap:22px;
-  }
-
-  .footer p{
-    font-size:6px;
-    letter-spacing:2px;
+    gap:20px;
   }
 
   .footer-links{
     justify-content:center;
-    gap:14px;
-  }
-
-  .footer a{
-    font-size:8px;
-    letter-spacing:1.5px;
+    gap:15px;
   }
 
 
-  /* ===== CART ===== */
+  /* CART */
   .cart{
     width:100%;
     right:-100%;
     padding:22px;
   }
 
-  .cart-head h3{
-    font-size:27px;
-  }
 
-
-  /* ===== PRODUCT DETAILS ===== */
+  /* PRODUCT DETAILS */
   .product-modal,
   .checkout-modal{
     padding:10px;
@@ -373,16 +259,15 @@
   .modal-card,
   .checkout-card{
     padding:16px;
-    max-height:94vh;
   }
 
   .modal-product{
     grid-template-columns:1fr;
-    gap:10px;
   }
 
   .modal-product img{
     height:270px;
+    object-fit:contain;
   }
 
   .modal-info{
@@ -390,12 +275,7 @@
   }
 
   .modal-info h3{
-    font-size:39px;
-  }
-
-  .modal-price{
-    font-size:16px;
+    font-size:40px;
   }
 
 }
-```

@@ -3,382 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>AK Collection | Premium Watches</title>
   <meta name="description" content="AK Collection - Premium watches with Cash on Delivery across Pakistan.">
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- TOP BAR -->
   <div class="top-bar">
-    <p>Free Delivery on Selected Orders • Cash on Delivery Available</p>
+    <div>🚚 &nbsp; FREE DELIVERY ALL OVER PAKISTAN</div>
+    <div>100% PREMIUM WATCHES &nbsp; | &nbsp; LUXURY ACCESSORIES</div>
+    <div>◇ &nbsp; TRUSTED &amp; SECURE PAYMENTS</div>
   </div>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="header-inner">
+      <button class="menu-button" aria-label="Menu"><span></span><span></span><span></span></button>
 
       <a href="#home" class="brand">
         <span class="brand-mark">AK</span>
+        <span class="brand-divider"></span>
         <span class="brand-name">
-          <strong>AK</strong>
-          <small>COLLECTION</small>
+          <strong>AK COLLECTION</strong>
+          <small>PREMIUM WATCHES &amp; ACCESSORIES</small>
         </span>
       </a>
 
       <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#collection">Collection</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a class="active" href="#home">HOME</a>
+        <a href="#collection">COLLECTION</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
       </nav>
 
       <div class="header-actions">
-        <button class="search-toggle" id="searchToggle" aria-label="Search">
-          <span>⌕</span>
-        </button>
-
+        <button class="search-toggle" id="searchToggle" aria-label="Search">⌕</button>
+        <span class="action-divider"></span>
         <button class="bag-button" id="bagButton" aria-label="Shopping bag">
-          <span>Bag</span>
+          <span class="bag-icon">♧</span>
           <b id="cartCount">0</b>
         </button>
       </div>
-
     </div>
 
     <div class="search-box" id="searchBox">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search watches..."
-        autocomplete="off"
-      >
+      <input type="text" id="searchInput" placeholder="Search watches..." autocomplete="off">
     </div>
   </header>
 
-
-  <!-- HERO -->
   <main>
-
     <section class="hero" id="home">
-      <div class="hero-content">
-
-        <div class="hero-text">
-          <span class="eyebrow">TIMELESS • ELEGANT • MODERN</span>
-
-          <h1>Wear Your<br><span>Signature.</span></h1>
-
-          <p>
-            Premium watches selected for those who appreciate
-            clean design, timeless style and everyday elegance.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#collection" class="btn btn-dark">
-              Shop Collection
-            </a>
-
-            <a href="#about" class="btn btn-light">
-              Discover AK
-            </a>
-          </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="hero-kicker"><span></span> TIMELESS LUXURY <span></span></div>
+          <h1>WORLD’S FINEST<br><em>WATCH BRANDS</em></h1>
+          <p class="hero-slogan">More than just watches,<br>it’s a lifestyle.</p>
+          <a href="#collection" class="hero-cta">EXPLORE COLLECTION <span>→</span></a>
         </div>
 
-        <div class="hero-visual">
-          <div class="hero-circle"></div>
-
-          <div class="hero-watch">
-            <div class="watch-crown"></div>
-            <div class="watch-case">
-              <div class="watch-dial">
-                <span class="watch-marker marker-12"></span>
-                <span class="watch-marker marker-3"></span>
-                <span class="watch-marker marker-6"></span>
-                <span class="watch-marker marker-9"></span>
-
-                <div class="watch-hand hour"></div>
-                <div class="watch-hand minute"></div>
-                <div class="watch-center"></div>
-              </div>
-            </div>
-            <div class="watch-strap top"></div>
-            <div class="watch-strap bottom"></div>
-          </div>
-
+        <div class="hero-watches">
+          <div class="hero-watch-card"><img src="blue-dial.jpg" alt="Premium blue dial watch"></div>
+          <div class="hero-watch-card"><img src="blue-leather.jpg" alt="Premium leather watch"></div>
+          <div class="hero-watch-card"><img src="silver-chronograph.jpg" alt="Premium chronograph watch"></div>
+          <div class="hero-watch-card"><img src="silver-set.jpg" alt="Premium watch set"></div>
         </div>
       </div>
     </section>
 
+    <section class="brand-strip">
+      <div><strong>ROLEX</strong><small>THE CROWN OF PRESTIGE</small></div>
+      <i></i>
+      <div><strong>PATEK PHILIPPE</strong><small>TIMELESS ELEGANCE</small></div>
+      <i></i>
+      <div><strong>HUBLOT</strong><small>BOLD BY DESIGN</small></div>
+      <i></i>
+      <div><strong>TISSOT</strong><small>PRECISION IN EVERY MOMENT</small></div>
+    </section>
 
-    <!-- COLLECTION -->
+    <section class="benefits">
+      <div><span>◇</span><div><strong>PREMIUM WATCHES</strong><small>Curated designs</small></div></div>
+      <div><span>♢</span><div><strong>SECURE PAYMENTS</strong><small>Easy ordering</small></div></div>
+      <div><span>▣</span><div><strong>FAST DELIVERY</strong><small>Across Pakistan</small></div></div>
+      <div><span>◉</span><div><strong>24/7 SUPPORT</strong><small>We’re here to help</small></div></div>
+    </section>
+
     <section class="collection section" id="collection">
-
       <div class="section-heading">
-        <div>
-          <span class="eyebrow">AK COLLECTION</span>
-          <h2>Our Watches</h2>
-        </div>
-
-        <p>
-          Explore our carefully selected collection of
-          classic, modern and luxury watches.
-        </p>
+        <div><span class="eyebrow">AK COLLECTION</span><h2>Our Watches</h2></div>
+        <p>Explore our carefully selected collection of classic, modern and luxury watches.</p>
       </div>
 
-
-      <!-- FILTERS -->
       <div class="filters">
-        <button class="filter active" data-filter="all">
-          All
-        </button>
-
-        <button class="filter" data-filter="Men">
-          Men
-        </button>
-
-        <button class="filter" data-filter="Luxury">
-          Luxury
-        </button>
-
-        <button class="filter" data-filter="Classic">
-          Classic
-        </button>
-
-        <button class="filter" data-filter="Modern">
-          Modern
-        </button>
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="Men">Men</button>
+        <button class="filter" data-filter="Luxury">Luxury</button>
+        <button class="filter" data-filter="Classic">Classic</button>
+        <button class="filter" data-filter="Modern">Modern</button>
       </div>
 
-
-      <!-- PRODUCTS -->
-      <div class="products-grid" id="productsGrid">
-
-        <!-- PRODUCTS ARE LOADED BY JAVASCRIPT -->
-
-      </div>
-
+      <div class="products-grid" id="productsGrid"></div>
     </section>
 
-
-    <!-- FEATURE STRIP -->
     <section class="feature-strip">
-
-      <div class="feature">
-        <span class="feature-icon">01</span>
-        <div>
-          <strong>Premium Style</strong>
-          <p>Elegant designs for every occasion.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <span class="feature-icon">02</span>
-        <div>
-          <strong>Cash on Delivery</strong>
-          <p>Order comfortably across Pakistan.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <span class="feature-icon">03</span>
-        <div>
-          <strong>Easy Ordering</strong>
-          <p>Order directly through WhatsApp.</p>
-        </div>
-      </div>
-
+      <div class="feature"><span class="feature-icon">01</span><div><strong>Premium Style</strong><p>Elegant designs for every occasion.</p></div></div>
+      <div class="feature"><span class="feature-icon">02</span><div><strong>Cash on Delivery</strong><p>Order comfortably across Pakistan.</p></div></div>
+      <div class="feature"><span class="feature-icon">03</span><div><strong>Easy Ordering</strong><p>Order directly through WhatsApp.</p></div></div>
     </section>
 
-
-    <!-- ABOUT -->
     <section class="about section" id="about">
-
-      <div class="about-image">
-        <div class="about-logo">
-          <span>AK</span>
-          <small>COLLECTION</small>
-        </div>
-      </div>
-
+      <div class="about-image"><div class="about-logo"><span>AK</span><small>COLLECTION</small></div></div>
       <div class="about-content">
         <span class="eyebrow">ABOUT AK COLLECTION</span>
-
         <h2>Time is your<br>greatest accessory.</h2>
-
-        <p>
-          At AK Collection, we believe a watch is more than
-          something that tells time. It is a part of your style,
-          personality and everyday presence.
-        </p>
-
-        <p>
-          Our collection brings together elegant designs,
-          modern details and timeless looks — making it easy
-          to find a watch that feels right for you.
-        </p>
-
-        <a href="#contact" class="text-link">
-          Get in touch →
-        </a>
+        <p>At AK Collection, we believe a watch is more than something that tells time. It is a part of your style, personality and everyday presence.</p>
+        <p>Our collection brings together elegant designs, modern details and timeless looks — making it easy to find a watch that feels right for you.</p>
+        <a href="#contact" class="text-link">Get in touch →</a>
       </div>
-
     </section>
 
-
-    <!-- CONTACT -->
     <section class="contact section" id="contact">
-
       <div class="contact-inner">
-
-        <div>
-          <span class="eyebrow">CONTACT</span>
-          <h2>Ready to find<br>your watch?</h2>
-        </div>
-
+        <div><span class="eyebrow">CONTACT</span><h2>Ready to find<br>your watch?</h2></div>
         <div class="contact-details">
-
-          <p>
-            Have a question or want to place an order?
-            Contact us directly on WhatsApp.
-          </p>
-
-          <button class="whatsapp-button" id="whatsappContact">
-            WhatsApp Us →
-          </button>
-
+          <p>Have a question or want to place an order? Contact us directly on WhatsApp.</p>
+          <button class="whatsapp-button" id="whatsappContact">WhatsApp Us →</button>
           <small>0370 9039540</small>
-
         </div>
-
       </div>
-
     </section>
-
   </main>
 
-
-  <!-- FOOTER -->
   <footer class="footer">
-
     <div class="footer-inner">
-
-      <div class="footer-brand">
-        <span class="footer-mark">AK</span>
-
-        <div>
-          <strong>AK COLLECTION</strong>
-          <p>Premium watches. Timeless style.</p>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#collection">Collection</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <p class="copyright">
-        © 2026 AK Collection. All rights reserved.
-      </p>
-
+      <div class="footer-brand"><span class="footer-mark">AK</span><div><strong>AK COLLECTION</strong><p>Premium watches. Timeless style.</p></div></div>
+      <div class="footer-links"><a href="#home">Home</a><a href="#collection">Collection</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+      <p class="copyright">© 2026 AK Collection. All rights reserved.</p>
     </div>
-
   </footer>
 
-
-  <!-- CART DRAWER -->
   <div class="overlay" id="overlay"></div>
-
   <aside class="cart-drawer" id="cartDrawer">
-
-    <div class="cart-header">
-      <div>
-        <span class="eyebrow">YOUR SELECTION</span>
-        <h3>Your Bag</h3>
-      </div>
-
-      <button id="closeCart" aria-label="Close">
-        ×
-      </button>
-    </div>
-
-    <div class="cart-items" id="cartItems">
-      <div class="empty-cart">
-        <p>Your bag is empty.</p>
-        <button class="btn btn-dark" id="continueShopping">
-          Continue Shopping
-        </button>
-      </div>
-    </div>
-
-    <div class="cart-footer">
-
-      <div class="cart-total">
-        <span>Total</span>
-        <strong id="cartTotal">PKR 0</strong>
-      </div>
-
-      <button class="checkout-button" id="checkoutButton">
-        Order on WhatsApp →
-      </button>
-
-      <small>
-        Cash on Delivery available
-      </small>
-
-    </div>
-
+    <div class="cart-header"><div><span class="eyebrow">YOUR SELECTION</span><h3>Your Bag</h3></div><button id="closeCart" aria-label="Close">×</button></div>
+    <div class="cart-items" id="cartItems"><div class="empty-cart"><p>Your bag is empty.</p><button class="btn btn-dark" id="continueShopping">Continue Shopping</button></div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total</span><strong id="cartTotal">PKR 0</strong></div><button class="checkout-button" id="checkoutButton">Order on WhatsApp →</button><small>Cash on Delivery available</small></div>
   </aside>
 
-
-  <!-- PRODUCT MODAL -->
   <div class="product-modal" id="productModal">
-
     <div class="modal-content">
-
-      <button class="modal-close" id="closeModal">
-        ×
-      </button>
-
-      <div class="modal-image">
-        <img id="modalImage" src="" alt="">
-      </div>
-
-      <div class="modal-info">
-
-        <span class="eyebrow" id="modalCategory">
-          WATCH
-        </span>
-
-        <h2 id="modalName">
-          Watch
-        </h2>
-
-        <p class="modal-price" id="modalPrice">
-          PKR 0
-        </p>
-
-        <p id="modalDescription">
-          Premium watch from AK Collection.
-        </p>
-
-        <button class="modal-add" id="modalAdd">
-          Add to Bag
-        </button>
-
-      </div>
-
+      <button class="modal-close" id="closeModal">×</button>
+      <div class="modal-image"><img id="modalImage" src="" alt=""></div>
+      <div class="modal-info"><span class="eyebrow" id="modalCategory">WATCH</span><h2 id="modalName">Watch</h2><p class="modal-price" id="modalPrice">PKR 0</p><p id="modalDescription">Premium watch from AK Collection.</p><button class="modal-add" id="modalAdd">Add to Bag</button></div>
     </div>
-
   </div>
 
-
-  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
-
 </body>
 </html>

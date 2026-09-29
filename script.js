@@ -1,27 +1,747 @@
-const WHATSAPP_NUMBER = "923709039540"; // AK Collection WhatsApp: 03709039540
-const products=[
-{id:1,name:"Royal Blue",cat:"Men • Luxury",price:6800,type:["men","luxury"],badge:"FEATURED",image:"blue-leather.jpg",material:"Leather strap",style:"Luxury",description:"A rich blue statement piece with a refined rectangular profile, made for formal looks and special occasions."},
-{id:2,name:"Rolex unisex",cat:"Men • Classic",price:2999,type:["men","classic"],badge:"NEW",image:"blue-dial.jpg",material:"Steel bracelet",style:"Classic",description:"A clean blue-dial design with a polished steel look that works effortlessly for everyday wear."},
-{id:3,name:"Hublot",cat:"Men • Modern",price:4000,type:["men","luxury"],badge:"POPULAR",image:"silver-chronograph.jpg",material:"Steel finish",style:"Modern",description:"A bold silver chronograph-inspired design for a confident, contemporary presence."},
-{id:4,name:"Rolex Set",cat:"Luxury • Set",price:7200,type:["classic","luxury","set"],badge:"LIMITED",image:"silver-set.jpg",material:"Premium set",style:"Gift Set",description:"A coordinated silver and white watch set, ideal for gifting or building a versatile collection."},
-{id:5,name:"patek phillipe",cat:"Classic • Luxury",price:2800,type:["classic","luxury"],badge:"NEW",image:"white-dial.jpg",material:"Classic finish",style:"Elegant",description:"A clean white-dial look with timeless styling for simple, polished outfits."}
+/* =========================================
+   AK COLLECTION — STORE SCRIPT
+   ========================================= */
+
+const WHATSAPP_NUMBER = "923709039540";
+
+
+/* =========================================
+   PRODUCTS
+   ========================================= */
+
+const products = [
+  {
+    id: 1,
+    name: "Automatic skelton",
+    category: "Men",
+    type: "Luxury",
+    price: 6800,
+    badge: "FEATURED",
+    image: "images/blue-leather.jpg",
+    description:
+      "A bold royal-blue timepiece with a premium leather look, designed for a confident and elegant style."
+  },
+
+  {
+    id: 2,
+    name: "Rolex blue",
+    category: "unisex",
+    type: "Classic",
+    price: 2999,
+    badge: "NEW",
+    image: "images/blue-dial.jpg",
+    description:
+      "A clean classic watch with a striking blue dial and timeless everyday styling."
+  },
+
+  {
+    id: 3,
+    name: "Hublot skelton",
+    category: "Men",
+    type: "Modern",
+    price: 4000,
+    badge: "POPULAR",
+    image: "images/silver-chronograph.jpg",
+    description:
+      "A modern silver chronograph-inspired design that adds a sharp finish to any outfit."
+  },
+
+  {
+    id: 4,
+    name: "Rolex Set",
+    category: "Luxury",
+    type: "Set",
+    price: 7200,
+    badge: "LIMITED",
+    image: "images/silver-set.jpg",
+    description:
+      "A premium silver watch set created for a refined and sophisticated look."
+  },
+
+  {
+    id: 5,
+    name: "Patek Phillipe",
+    category: "Classic",
+    type: "Luxury",
+    price: 2800,
+    badge: "NEW",
+    image: "images/white-dial.jpg",
+    description:
+      "A clean white-dial design with an elegant appearance, perfect for everyday wear."
+  }
 ];
-let cart=JSON.parse(localStorage.getItem("akCart")||"[]"), activeFilter="all", searchTerm="";
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s), money=n=>`PKR ${n.toLocaleString("en-PK")}`;
-function renderProducts(){const list=products.filter(p=>(activeFilter==="all"||p.type.includes(activeFilter))&&(`${p.name} ${p.cat} ${p.style}`.toLowerCase().includes(searchTerm.toLowerCase())));$('#resultsCount').textContent=`${list.length} WATCH${list.length===1?'':'ES'} AVAILABLE`;$('#clearSearch').style.visibility=searchTerm||activeFilter!=="all"?'visible':'hidden';$('#products').innerHTML=list.length?list.map(p=>`<article class="product"><div class="product-img"><span class="badge">${p.badge}</span><img class="real-watch" src="${p.image}" alt="${p.name} watch"></div><div class="product-info"><span class="category">${p.cat}</span><h3>${p.name}</h3><div class="price"><span>${money(p.price)}</span><div class="card-actions"><button class="details-btn" data-details="${p.id}">VIEW</button><button class="add" data-id="${p.id}">ADD</button></div></div></div></article>`).join(''):`<div class="empty" style="grid-column:1/-1">No watches found. Try another search.</div>`;$$('.add').forEach(b=>b.onclick=()=>addToCart(+b.dataset.id));$$('[data-details]').forEach(b=>b.onclick=()=>showDetails(+b.dataset.details));}
-function addToCart(id){const f=cart.find(x=>x.id===id);f?f.qty++:cart.push({id,qty:1});saveCart();openCart()}
-function saveCart(){localStorage.setItem('akCart',JSON.stringify(cart));renderCart()}
-function renderCart(){const el=$('#cartItems'),count=cart.reduce((s,x)=>s+x.qty,0);$('#cartCount').textContent=count;if(!cart.length){el.innerHTML='<p class="empty">Your bag is waiting.</p>';$('#cartTotal').textContent='PKR 0';return}el.innerHTML=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `<div class="cart-row"><div><h4>${p.name}</h4><small>${money(p.price)} each</small><div class="qty"><button data-minus="${p.id}">−</button><span>${x.qty}</span><button data-plus="${p.id}">+</button></div></div><div><strong>${money(p.price*x.qty)}</strong><br><button class="remove" data-remove="${p.id}">REMOVE</button></div></div>`}).join('');$('#cartTotal').textContent=money(cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0));$$('[data-remove]').forEach(b=>b.onclick=()=>{cart=cart.filter(x=>x.id!==+b.dataset.remove);saveCart()});$$('[data-plus]').forEach(b=>b.onclick=()=>changeQty(+b.dataset.plus,1));$$('[data-minus]').forEach(b=>b.onclick=()=>changeQty(+b.dataset.minus,-1))}
-function changeQty(id,delta){const f=cart.find(x=>x.id===id);if(!f)return;f.qty+=delta;if(f.qty<=0)cart=cart.filter(x=>x.id!==id);saveCart()}
-function openCart(){$('#cart').classList.add('open');$('#overlay').classList.add('show')};function closeCart(){$('#cart').classList.remove('open');$('#overlay').classList.remove('show')}
-$('#cartOpen').onclick=openCart;$('#cartClose').onclick=closeCart;$('#overlay').onclick=closeCart;
-$$('.filter').forEach(b=>b.onclick=()=>{$$('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeFilter=b.dataset.filter;renderProducts()});
-$('#search').oninput=e=>{searchTerm=e.target.value;renderProducts()};$('#clearSearch').onclick=()=>{$('#search').value='';searchTerm='';activeFilter='all';$$('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter==='all'));renderProducts()};
-function showDetails(id){const p=products.find(x=>x.id===id);$('#modalContent').innerHTML=`<div class="modal-product"><img src="${p.image}" alt="${p.name}"><div class="modal-info"><p class="eyebrow">${p.badge}</p><h3>${p.name}</h3><div class="modal-price">${money(p.price)}</div><p style="color:#999;font-size:12px">${p.description}</p><div class="specs"><div><span>Category</span><strong>${p.cat}</strong></div><div><span>Style</span><strong>${p.style}</strong></div><div><span>Finish</span><strong>${p.material}</strong></div><div><span>Delivery</span><strong>Pakistan-wide</strong></div></div><button class="gold-btn full" id="modalAdd">ADD TO BAG →</button></div></div>`;$('#productModal').classList.add('show');$('#modalAdd').onclick=()=>{addToCart(id);$('#productModal').classList.remove('show')}}
-$('#modalClose').onclick=()=>$('#productModal').classList.remove('show');$('#productModal').onclick=e=>{if(e.target.id==='productModal')$('#productModal').classList.remove('show')};
-function baseWhatsApp(text){return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`}
-$('#heroWhatsapp').href=baseWhatsApp('Assalam-o-Alaikum AK Collection! I want to know more about your watches.');$('#whatsappContact').href=baseWhatsApp('Assalam-o-Alaikum AK Collection! I want to know more about your watches.');
-$('#checkout').onclick=()=>{if(!cart.length){alert('Please add a watch to your bag first.');return}$('#checkoutModal').classList.add('show')};$('#checkoutClose').onclick=()=>$('#checkoutModal').classList.remove('show');
-$('#orderForm').onsubmit=e=>{e.preventDefault();const lines=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `${p.name} x${x.qty} — ${money(p.price*x.qty)}`}).join('\n');const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);const msg=`Assalam-o-Alaikum AK Collection!\n\nI want to place an order:\n${lines}\n\nTotal: ${money(total)}\n\nCustomer Name: ${$('#customerName').value}\nPhone: ${$('#customerPhone').value}\nCity: ${$('#customerCity').value}\nAddress: ${$('#customerAddress').value}`;window.open(baseWhatsApp(msg),'_blank');};
-$('#menuBtn').onclick=()=>$('#nav').classList.toggle('open');$$('#nav a').forEach(a=>a.onclick=()=>$('#nav').classList.remove('open'));
-renderProducts();renderCart();
+
+
+/* =========================================
+   ELEMENTS
+   ========================================= */
+
+const productsGrid = document.getElementById("productsGrid");
+const cartCount = document.getElementById("cartCount");
+const cartDrawer = document.getElementById("cartDrawer");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const overlay = document.getElementById("overlay");
+
+const bagButton = document.getElementById("bagButton");
+const closeCart = document.getElementById("closeCart");
+const continueShopping = document.getElementById("continueShopping");
+const checkoutButton = document.getElementById("checkoutButton");
+
+const searchToggle = document.getElementById("searchToggle");
+const searchBox = document.getElementById("searchBox");
+const searchInput = document.getElementById("searchInput");
+
+const whatsappContact = document.getElementById("whatsappContact");
+
+const productModal = document.getElementById("productModal");
+const closeModal = document.getElementById("closeModal");
+const modalImage = document.getElementById("modalImage");
+const modalCategory = document.getElementById("modalCategory");
+const modalName = document.getElementById("modalName");
+const modalPrice = document.getElementById("modalPrice");
+const modalDescription = document.getElementById("modalDescription");
+const modalAdd = document.getElementById("modalAdd");
+
+
+/* =========================================
+   CART
+   ========================================= */
+
+let cart = JSON.parse(localStorage.getItem("akCollectionCart")) || [];
+
+let currentModalProduct = null;
+
+
+/* =========================================
+   PRICE FORMAT
+   ========================================= */
+
+function formatPrice(price) {
+  return "PKR " + price.toLocaleString("en-PK");
+}
+
+
+/* =========================================
+   SAVE CART
+   ========================================= */
+
+function saveCart() {
+  localStorage.setItem("akCollectionCart", JSON.stringify(cart));
+}
+
+
+/* =========================================
+   RENDER PRODUCTS
+   ========================================= */
+
+function renderProducts(list = products) {
+
+  if (!productsGrid) return;
+
+  if (list.length === 0) {
+
+    productsGrid.innerHTML = `
+      <div style="
+        grid-column: 1 / -1;
+        padding: 60px 20px;
+        text-align: center;
+        color: #777;
+      ">
+        <h3 style="margin-bottom:8px;">No watches found</h3>
+        <p>Try another search or category.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+
+  productsGrid.innerHTML = list.map(product => {
+
+    return `
+      <article class="product-card">
+
+        <div class="product-image">
+
+          <img
+            src="${product.image}"
+            alt="${product.name} watch"
+            loading="lazy"
+          >
+
+          <span class="product-badge">
+            ${product.badge}
+          </span>
+
+        </div>
+
+        <div class="product-info">
+
+          <span class="product-category">
+            ${product.category} • ${product.type}
+          </span>
+
+          <h3 class="product-name">
+            ${product.name}
+          </h3>
+
+          <div class="product-price">
+            ${formatPrice(product.price)}
+          </div>
+
+          <div class="product-actions">
+
+            <button
+              class="product-view"
+              data-view="${product.id}"
+            >
+              VIEW
+            </button>
+
+            <button
+              class="product-add"
+              data-add="${product.id}"
+            >
+              ADD TO BAG
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+    `;
+
+  }).join("");
+}
+
+
+/* =========================================
+   PRODUCT BUTTONS
+   ========================================= */
+
+productsGrid.addEventListener("click", function(event) {
+
+  const addButton = event.target.closest("[data-add]");
+  const viewButton = event.target.closest("[data-view]");
+
+
+  if (addButton) {
+
+    const id = Number(addButton.dataset.add);
+
+    addToCart(id);
+
+    addButton.textContent = "ADDED ✓";
+
+    setTimeout(() => {
+      addButton.textContent = "ADD TO BAG";
+    }, 1000);
+
+  }
+
+
+  if (viewButton) {
+
+    const id = Number(viewButton.dataset.view);
+
+    openProductModal(id);
+
+  }
+
+});
+
+
+/* =========================================
+   ADD TO CART
+   ========================================= */
+
+function addToCart(productId) {
+
+  const product = products.find(item => item.id === productId);
+
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === productId);
+
+  if (existing) {
+
+    existing.quantity += 1;
+
+  } else {
+
+    cart.push({
+      id: product.id,
+      quantity: 1
+    });
+
+  }
+
+  saveCart();
+  updateCart();
+
+}
+
+
+/* =========================================
+   REMOVE FROM CART
+   ========================================= */
+
+function removeFromCart(productId) {
+
+  cart = cart.filter(item => item.id !== productId);
+
+  saveCart();
+  updateCart();
+
+}
+
+
+/* =========================================
+   CART UPDATE
+   ========================================= */
+
+function updateCart() {
+
+  const totalItems = cart.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
+
+  const totalPrice = cart.reduce((sum, item) => {
+
+    const product = products.find(
+      product => product.id === item.id
+    );
+
+    return sum + (product ? product.price * item.quantity : 0);
+
+  }, 0);
+
+
+  cartCount.textContent = totalItems;
+
+  cartTotal.textContent = formatPrice(totalPrice);
+
+
+  if (cart.length === 0) {
+
+    cartItems.innerHTML = `
+      <div class="empty-cart">
+
+        <p>Your bag is empty.</p>
+
+        <button class="btn btn-dark" id="continueShopping">
+          Continue Shopping
+        </button>
+
+      </div>
+    `;
+
+    const newContinueButton =
+      document.getElementById("continueShopping");
+
+    if (newContinueButton) {
+      newContinueButton.addEventListener(
+        "click",
+        closeCartDrawer
+      );
+    }
+
+    return;
+  }
+
+
+  cartItems.innerHTML = cart.map(item => {
+
+    const product = products.find(
+      product => product.id === item.id
+    );
+
+    if (!product) return "";
+
+    return `
+      <div class="cart-item">
+
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+        >
+
+        <div>
+
+          <div class="cart-item-name">
+            ${product.name}
+          </div>
+
+          <div class="cart-item-price">
+            ${formatPrice(product.price)} × ${item.quantity}
+          </div>
+
+        </div>
+
+        <button
+          class="remove-item"
+          data-remove="${product.id}"
+          aria-label="Remove ${product.name}"
+        >
+          ×
+        </button>
+
+      </div>
+    `;
+
+  }).join("");
+
+}
+
+
+/* =========================================
+   CART REMOVE BUTTON
+   ========================================= */
+
+cartItems.addEventListener("click", function(event) {
+
+  const removeButton =
+    event.target.closest("[data-remove]");
+
+  if (!removeButton) return;
+
+  const id = Number(removeButton.dataset.remove);
+
+  removeFromCart(id);
+
+});
+
+
+/* =========================================
+   OPEN CART
+   ========================================= */
+
+function openCartDrawer() {
+
+  cartDrawer.classList.add("open");
+  overlay.classList.add("show");
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================================
+   CLOSE CART
+   ========================================= */
+
+function closeCartDrawer() {
+
+  cartDrawer.classList.remove("open");
+  overlay.classList.remove("show");
+
+  document.body.style.overflow = "";
+
+}
+
+
+/* =========================================
+   CART EVENTS
+   ========================================= */
+
+bagButton.addEventListener(
+  "click",
+  openCartDrawer
+);
+
+closeCart.addEventListener(
+  "click",
+  closeCartDrawer
+);
+
+overlay.addEventListener(
+  "click",
+  closeCartDrawer
+);
+
+
+/* =========================================
+   SEARCH
+   ========================================= */
+
+searchToggle.addEventListener("click", function() {
+
+  searchBox.classList.toggle("show");
+
+  if (searchBox.classList.contains("show")) {
+
+    searchInput.focus();
+
+  } else {
+
+    searchInput.value = "";
+    renderProducts(products);
+
+  }
+
+});
+
+
+searchInput.addEventListener("input", function() {
+
+  const query =
+    searchInput.value.trim().toLowerCase();
+
+  if (!query) {
+
+    renderProducts(products);
+
+    return;
+
+  }
+
+
+  const results = products.filter(product => {
+
+    return (
+      product.name.toLowerCase().includes(query) ||
+      product.category.toLowerCase().includes(query) ||
+      product.type.toLowerCase().includes(query)
+    );
+
+  });
+
+
+  renderProducts(results);
+
+});
+
+
+/* =========================================
+   FILTERS
+   ========================================= */
+
+const filterButtons =
+  document.querySelectorAll(".filter");
+
+
+filterButtons.forEach(button => {
+
+  button.addEventListener("click", function() {
+
+    filterButtons.forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+
+    const filter =
+      button.dataset.filter;
+
+
+    if (filter === "all") {
+
+      renderProducts(products);
+
+      return;
+
+    }
+
+
+    const filtered = products.filter(product => {
+
+      return (
+        product.category === filter ||
+        product.type === filter
+      );
+
+    });
+
+
+    renderProducts(filtered);
+
+  });
+
+});
+
+
+/* =========================================
+   PRODUCT MODAL
+   ========================================= */
+
+function openProductModal(productId) {
+
+  const product =
+    products.find(item => item.id === productId);
+
+  if (!product) return;
+
+  currentModalProduct = product;
+
+
+  modalImage.src = product.image;
+  modalImage.alt = product.name;
+
+  modalCategory.textContent =
+    `${product.category} • ${product.type}`;
+
+  modalName.textContent =
+    product.name;
+
+  modalPrice.textContent =
+    formatPrice(product.price);
+
+  modalDescription.textContent =
+    product.description;
+
+
+  productModal.classList.add("show");
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+function closeProductModal() {
+
+  productModal.classList.remove("show");
+
+  document.body.style.overflow = "";
+
+  currentModalProduct = null;
+
+}
+
+
+closeModal.addEventListener(
+  "click",
+  closeProductModal
+);
+
+
+productModal.addEventListener(
+  "click",
+  function(event) {
+
+    if (event.target === productModal) {
+      closeProductModal();
+    }
+
+  }
+);
+
+
+modalAdd.addEventListener("click", function() {
+
+  if (!currentModalProduct) return;
+
+  addToCart(currentModalProduct.id);
+
+  modalAdd.textContent = "ADDED TO BAG ✓";
+
+  setTimeout(() => {
+
+    modalAdd.textContent = "ADD TO BAG";
+
+  }, 1000);
+
+});
+
+
+/* =========================================
+   WHATSAPP ORDER
+   ========================================= */
+
+checkoutButton.addEventListener("click", function() {
+
+  if (cart.length === 0) {
+
+    alert("Your bag is empty. Please add a watch first.");
+
+    return;
+
+  }
+
+
+  let message =
+    "Assalam-o-Alaikum AK Collection,%0A%0A";
+
+  message +=
+    "*I want to place an order:*%0A%0A";
+
+
+  let total = 0;
+
+
+  cart.forEach(item => {
+
+    const product =
+      products.find(product => product.id === item.id);
+
+    if (!product) return;
+
+
+    const itemTotal =
+      product.price * item.quantity;
+
+    total += itemTotal;
+
+
+    message +=
+      `• ${product.name} × ${item.quantity} — ${formatPrice(itemTotal)}%0A`;
+
+  });
+
+
+  message +=
+    `%0A*Total: ${formatPrice(total)}*%0A%0A`;
+
+  message +=
+    "Please confirm my order and delivery details.";
+
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+
+  window.open(url, "_blank");
+
+});
+
+
+/* =========================================
+   CONTACT WHATSAPP
+   ========================================= */
+
+whatsappContact.addEventListener("click", function() {
+
+  const message =
+    "Assalam-o-Alaikum AK Collection, I would like to know more about your watches.";
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+
+});
+
+
+/* =========================================
+   ESCAPE KEY
+   ========================================= */
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key !== "Escape") return;
+
+  closeCartDrawer();
+  closeProductModal();
+
+});
+
+
+/* =========================================
+   INITIAL LOAD
+   ========================================= */
+
+renderProducts();
+updateCart();

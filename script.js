@@ -1,727 +1,808 @@
 /* =========================================================
-   AK COLLECTION — MOBILE FIRST STORE SCRIPT
+   AK COLLECTION — STORE SCRIPT
    ========================================================= */
 
 const WHATSAPP_NUMBER = "923709039540";
 const DELIVERY_FEE = 250;
 
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
 const products = [
+
   {
     id: 1,
     name: "Automatic Skelton",
-    category: "Watches",
     type: "Luxury",
     price: 6800,
-    badge: "FEATURED",
     image: "blue-leather.jpg",
-    description: "A bold royal-blue timepiece with a premium leather look, designed for a confident and elegant style."
+    description:
+      "Premium automatic skeleton-style watch with a bold luxury appearance."
   },
+
   {
     id: 2,
     name: "Rolex Blue",
-    category: "Watches",
     type: "Classic",
     price: 2999,
-    badge: "NEW",
     image: "blue-dial.jpg",
-    description: "A clean classic watch with a striking blue dial and timeless everyday styling."
+    description:
+      "Elegant blue dial watch designed for a clean and timeless look."
   },
+
   {
     id: 3,
     name: "Hublot Skelton",
-    category: "Watches",
     type: "Modern",
     price: 4000,
-    badge: "POPULAR",
     image: "silver-chronograph.jpg",
-    description: "A modern silver chronograph-inspired design that adds a sharp finish to any outfit."
+    description:
+      "Modern skeleton-inspired design with a strong everyday presence."
   },
+
   {
     id: 4,
     name: "Rolex Set",
-    category: "Watches",
-    type: "Luxury Set",
+    type: "Luxury",
     price: 7200,
-    badge: "LIMITED",
     image: "silver-set.jpg",
-    description: "A premium silver watch set created for a refined and sophisticated look."
+    description:
+      "Premium watch set with a sophisticated and complete presentation."
   },
+
   {
     id: 5,
     name: "Patek Philippe",
-    category: "Watches",
     type: "Luxury",
     price: 2800,
-    badge: "NEW",
     image: "white-dial.jpg",
-    description: "A clean white-dial design with an elegant appearance, perfect for everyday wear."
+    description:
+      "Clean white dial design with a refined luxury-inspired appearance."
   }
+
 ];
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let cart = JSON.parse(
+  localStorage.getItem("akCollectionCart") || "[]"
+);
+
+let activeFilter = "All";
+
 
 /* =========================================================
    ELEMENTS
    ========================================================= */
 
 const productsGrid = document.getElementById("productsGrid");
-const cartCount = document.getElementById("cartCount");
+
+const cartBtn = document.getElementById("cartBtn");
+const cartClose = document.getElementById("cartClose");
 const cartDrawer = document.getElementById("cartDrawer");
+const cartOverlay = document.getElementById("cartOverlay");
+
 const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+
 const cartTotal = document.getElementById("cartTotal");
-const cartGrandTotal = document.getElementById("cartGrandTotal");
-const overlay = document.getElementById("overlay");
+const grandTotal = document.getElementById("grandTotal");
 
-const bagButton = document.getElementById("bagButton");
-const closeCart = document.getElementById("closeCart");
-const checkoutButton = document.getElementById("checkoutButton");
-
-const whatsappOrderButton =
-  document.getElementById("whatsappOrderButton");
-
-const searchToggle = document.getElementById("searchToggle");
-const searchBox = document.getElementById("searchBox");
-const searchInput = document.getElementById("searchInput");
-const whatsappContact = document.getElementById("whatsappContact");
+const checkoutBtn = document.getElementById("checkoutBtn");
+const directWhatsapp = document.getElementById("directWhatsapp");
 
 const productModal = document.getElementById("productModal");
-const closeModal = document.getElementById("closeModal");
-const modalImage = document.getElementById("modalImage");
-const modalCategory = document.getElementById("modalCategory");
-const modalName = document.getElementById("modalName");
-const modalPrice = document.getElementById("modalPrice");
-const modalDescription = document.getElementById("modalDescription");
-const modalAdd = document.getElementById("modalAdd");
+const productModalClose =
+  document.getElementById("productModalClose");
 
-const checkoutModal = document.getElementById("checkoutModal");
-const closeCheckout = document.getElementById("closeCheckout");
-const checkoutForm = document.getElementById("checkoutForm");
-const checkoutWhatsapp = document.getElementById("checkoutWhatsapp");
+const productModalContent =
+  document.getElementById("productModalContent");
 
-let cart = JSON.parse(localStorage.getItem("akCollectionCart")) || [];
-let currentModalProduct = null;
-let activeCategory = "Watches";
+const checkoutModal =
+  document.getElementById("checkoutModal");
+
+const checkoutClose =
+  document.getElementById("checkoutClose");
+
+const checkoutForm =
+  document.getElementById("checkoutForm");
+
+const checkoutWhatsapp =
+  document.getElementById("checkoutWhatsapp");
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+const mobileClose =
+  document.getElementById("mobileClose");
+
+const menuOverlay =
+  document.getElementById("menuOverlay");
+
+const searchBtn =
+  document.getElementById("searchBtn");
+
+const searchBox =
+  document.getElementById("searchBox");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const closeSearch =
+  document.getElementById("closeSearch");
+
 
 /* =========================================================
    HELPERS
    ========================================================= */
 
 function formatPrice(price) {
-  return "PKR " + Number(price).toLocaleString("en-PK");
+  return `PKR ${price.toLocaleString("en-PK")}`;
 }
+
 
 function saveCart() {
-  localStorage.setItem("akCollectionCart", JSON.stringify(cart));
+  localStorage.setItem(
+    "akCollectionCart",
+    JSON.stringify(cart)
+  );
 }
 
-function getCartSubtotal() {
-  return cart.reduce((sum, item) => {
-    const product = products.find(p => p.id === item.id);
-
-    if (!product) return sum;
-
-    return sum + product.price * item.quantity;
-  }, 0);
-}
-
-function getCartGrandTotal() {
-  return getCartSubtotal() + DELIVERY_FEE;
-}
-
-/* =========================================================
-   BRAND LOGO
-   ========================================================= */
-
-function setupBrandLogo() {
-  const brand = document.querySelector(".brand");
-
-  if (brand) {
-    const oldMark = brand.querySelector(".brand-mark");
-
-    if (oldMark) {
-      oldMark.innerHTML = `
-        <img
-          class="ak-logo-img"
-          src="ak-logo.png"
-          alt="AK Collection logo"
-        >
-      `;
-    }
-  }
-
-  const footerBrand = document.querySelector(".footer-brand");
-
-  if (footerBrand) {
-    const old = footerBrand.querySelector(".footer-mark");
-
-    if (old) {
-      old.outerHTML = `
-        <img
-          class="footer-logo-img"
-          src="ak-logo.png"
-          alt="AK Collection logo"
-        >
-      `;
-    }
-  }
-}
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-function setupMobileMenu() {
-  const menuButton = document.querySelector(".menu-button");
-
-  if (!menuButton || document.querySelector(".ak-mobile-menu")) {
-    return;
-  }
-
-  const menuOverlay = document.createElement("div");
-  menuOverlay.className = "ak-menu-overlay";
-
-  const menu = document.createElement("div");
-  menu.className = "ak-mobile-menu";
-
-  menu.innerHTML = `
-    <div class="menu-title">AK COLLECTION</div>
-
-    <a href="#home">Home</a>
-    <a href="#collection">Collection</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  `;
-
-  document.body.append(menuOverlay, menu);
-
-  function closeMenu() {
-    menu.classList.remove("open");
-    menuOverlay.classList.remove("show");
-    document.body.style.overflow = "";
-  }
-
-  menuButton.addEventListener("click", () => {
-    menu.classList.add("open");
-    menuOverlay.classList.add("show");
-    document.body.style.overflow = "hidden";
-  });
-
-  menuOverlay.addEventListener("click", closeMenu);
-
-  menu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", closeMenu);
-  });
-}
-
-/* =========================================================
-   CATEGORY BUTTONS
-   ========================================================= */
-
-function setupCategories() {
-  const collection = document.getElementById("collection");
-  const grid = document.getElementById("productsGrid");
-
-  if (
-    !collection ||
-    !grid ||
-    document.querySelector(".ak-mobile-categories")
-  ) {
-    return;
-  }
-
-  const bar = document.createElement("div");
-
-  bar.className = "ak-mobile-categories";
-
-  bar.innerHTML = `
-    <button
-      class="ak-category-btn active"
-      data-category="Watches"
-    >
-      <span>⌚</span>
-      Watches
-    </button>
-
-    <button
-      class="ak-category-btn"
-      data-category="Wallets"
-    >
-      <span>👛</span>
-      Wallets
-    </button>
-
-    <button
-      class="ak-category-btn"
-      data-category="Caps"
-    >
-      <span>🧢</span>
-      Caps
-    </button>
-
-    <button
-      class="ak-category-btn"
-      data-category="Bracelets"
-    >
-      <span>💎</span>
-      Bracelets
-    </button>
-  `;
-
-  grid.parentNode.insertBefore(bar, grid);
-
-  bar.addEventListener("click", event => {
-    const button = event.target.closest("[data-category]");
-
-    if (!button) return;
-
-    bar.querySelectorAll(".ak-category-btn").forEach(btn => {
-      btn.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    activeCategory = button.dataset.category;
-
-    renderProducts();
-  });
-}
 
 /* =========================================================
    PRODUCTS
    ========================================================= */
 
-function renderProducts(list = products) {
-  if (!productsGrid) return;
+function renderProducts() {
 
-  const visibleProducts = list.filter(
-    product => product.category === activeCategory
-  );
+  const searchTerm =
+    searchInput?.value.trim().toLowerCase() || "";
 
-  if (!visibleProducts.length) {
-    let icon = "💎";
+  let filtered = products.filter(product => {
 
-    if (activeCategory === "Wallets") {
-      icon = "👛";
-    }
+    const matchesFilter =
+      activeFilter === "All" ||
+      product.type === activeFilter;
 
-    if (activeCategory === "Caps") {
-      icon = "🧢";
-    }
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchTerm) ||
+      product.type.toLowerCase().includes(searchTerm);
+
+    return matchesFilter && matchesSearch;
+  });
+
+
+  if (!filtered.length) {
 
     productsGrid.innerHTML = `
-      <div
-        style="
-          grid-column:1/-1;
-          padding:55px 20px;
-          text-align:center;
-          color:#777;
-        "
-      >
-        <div style="font-size:28px;margin-bottom:10px">
-          ${icon}
-        </div>
-
-        <h3
-          style="
-            margin-bottom:7px;
-            font-family:Georgia,serif;
-          "
-        >
-          Coming Soon
-        </h3>
-
-        <p>
-          ${activeCategory} collection will be added soon.
-        </p>
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:60px 20px;
+        color:#888;
+        font-size:13px;
+      ">
+        No watches found.
       </div>
     `;
 
     return;
   }
 
-  productsGrid.innerHTML = visibleProducts
-    .map(product => {
-      return `
-        <article class="product-card">
 
-          <div class="product-image">
-            <img
-              src="${product.image}"
-              alt="${product.name}"
-              loading="lazy"
-            >
+  productsGrid.innerHTML = filtered.map(product => `
 
-            <span class="product-badge">
-              ${product.badge}
-            </span>
-          </div>
+    <article class="product-card">
 
-          <div class="product-info">
+      <div class="product-image">
 
-            <span class="product-category">
-              ${product.type}
-            </span>
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
+        >
 
-            <h3 class="product-name">
-              ${product.name}
-            </h3>
+      </div>
 
-            <div class="product-price">
-              ${formatPrice(product.price)}
-            </div>
 
-            <div class="product-actions">
+      <div class="product-info">
 
-              <button
-                class="product-view"
-                data-view="${product.id}"
-              >
-                VIEW
-              </button>
+        <span class="product-type">
+          ${product.type}
+        </span>
 
-              <button
-                class="product-add"
-                data-add="${product.id}"
-              >
-                ADD TO CART
-              </button>
+        <h3 class="product-name">
+          ${product.name}
+        </h3>
 
-            </div>
+        <div class="product-price">
+          ${formatPrice(product.price)}
+        </div>
 
-          </div>
 
-        </article>
-      `;
-    })
-    .join("");
+        <div class="product-actions">
+
+          <button
+            onclick="openProduct(${product.id})"
+          >
+            VIEW
+          </button>
+
+          <button
+            class="add-cart"
+            onclick="addToCart(${product.id})"
+          >
+            ADD TO BAG
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `).join("");
 }
+
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+
+document.querySelectorAll(".filter").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    document
+      .querySelectorAll(".filter")
+      .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    activeFilter =
+      button.dataset.filter;
+
+    renderProducts();
+  });
+
+});
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+searchBtn.addEventListener("click", () => {
+
+  searchBox.classList.toggle("show");
+
+  if (searchBox.classList.contains("show")) {
+    searchInput.focus();
+  }
+
+});
+
+
+searchInput.addEventListener("input", renderProducts);
+
+
+closeSearch.addEventListener("click", () => {
+
+  searchInput.value = "";
+  searchBox.classList.remove("show");
+
+  renderProducts();
+
+});
+
 
 /* =========================================================
    CART
    ========================================================= */
 
 function addToCart(productId) {
-  const product = products.find(p => p.id === productId);
+
+  const product =
+    products.find(item => item.id === productId);
 
   if (!product) return;
 
-  const existing = cart.find(item => item.id === productId);
+
+  const existing =
+    cart.find(item => item.id === productId);
+
 
   if (existing) {
-    existing.quantity += 1;
+    existing.quantity++;
   } else {
+
     cart.push({
-      id: productId,
+      id: product.id,
       quantity: 1
     });
+
   }
 
+
   saveCart();
-  updateCart();
+  renderCart();
+  openCart();
+
 }
 
+
+function removeFromCart(productId) {
+
+  cart =
+    cart.filter(item => item.id !== productId);
+
+  saveCart();
+  renderCart();
+
+}
+
+
 function changeQuantity(productId, amount) {
-  const item = cart.find(i => i.id === productId);
+
+  const item =
+    cart.find(item => item.id === productId);
 
   if (!item) return;
 
+
   item.quantity += amount;
 
+
   if (item.quantity <= 0) {
-    cart = cart.filter(i => i.id !== productId);
+    removeFromCart(productId);
+    return;
   }
+
 
   saveCart();
-  updateCart();
+  renderCart();
+
 }
 
-function removeFromCart(productId) {
-  cart = cart.filter(item => item.id !== productId);
 
-  saveCart();
-  updateCart();
+function getCartTotal() {
+
+  return cart.reduce((total, item) => {
+
+    const product =
+      products.find(p => p.id === item.id);
+
+    if (!product) return total;
+
+    return total +
+      product.price * item.quantity;
+
+  }, 0);
+
 }
 
-function updateCart() {
-  const totalItems = cart.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
 
-  const subtotal = getCartSubtotal();
-  const grandTotal = subtotal + DELIVERY_FEE;
+/* =========================================================
+   RENDER CART
+   ========================================================= */
 
-  if (cartCount) {
-    cartCount.textContent = totalItems;
-  }
+function renderCart() {
 
-  if (cartTotal) {
-    cartTotal.textContent = formatPrice(subtotal);
-  }
-
-  if (cartGrandTotal) {
-    cartGrandTotal.textContent = formatPrice(
-      cart.length ? grandTotal : DELIVERY_FEE
+  const totalItems =
+    cart.reduce(
+      (sum, item) => sum + item.quantity,
+      0
     );
-  }
 
-  if (!cartItems) return;
+
+  cartCount.textContent = totalItems;
+
+
+  const subtotal =
+    getCartTotal();
+
+
+  cartTotal.textContent =
+    formatPrice(subtotal);
+
+
+  grandTotal.textContent =
+    subtotal > 0
+      ? formatPrice(subtotal + DELIVERY_FEE)
+      : "PKR 0";
+
 
   if (!cart.length) {
+
     cartItems.innerHTML = `
       <div class="empty-cart">
 
-        <p>Your bag is empty.</p>
+        <span>◇</span>
 
-        <button
-          class="btn btn-dark"
-          id="continueShoppingNew"
-        >
-          Continue Shopping
-        </button>
+        <h3>Your bag is empty</h3>
+
+        <p>
+          Add a watch to get started.
+        </p>
 
       </div>
     `;
 
-    document
-      .getElementById("continueShoppingNew")
-      ?.addEventListener("click", closeCartDrawer);
-
     return;
   }
 
-  cartItems.innerHTML = cart
-    .map(item => {
-      const product = products.find(
-        p => p.id === item.id
-      );
 
-      if (!product) return "";
+  cartItems.innerHTML = cart.map(item => {
 
-      return `
-        <div class="cart-item">
+    const product =
+      products.find(p => p.id === item.id);
 
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-          >
+    if (!product) return "";
 
-          <div>
 
-            <div class="cart-item-name">
-              ${product.name}
-            </div>
+    return `
 
-            <div class="cart-item-price">
-              ${formatPrice(product.price)} each
-            </div>
+      <div class="cart-item">
 
-            <div
-              style="
-                display:flex;
-                align-items:center;
-                gap:8px;
-                margin-top:7px;
-              "
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+        >
+
+
+        <div class="cart-item-info">
+
+          <h4>${product.name}</h4>
+
+          <p>
+            ${formatPrice(product.price)}
+          </p>
+
+
+          <div class="cart-qty">
+
+            <button
+              onclick="changeQuantity(${product.id}, -1)"
             >
+              −
+            </button>
 
-              <button
-                data-minus="${product.id}"
-                style="
-                  width:28px;
-                  height:28px;
-                  border:1px solid #ddd;
-                  background:#fff;
-                  border-radius:6px;
-                "
-              >
-                −
-              </button>
+            <span>${item.quantity}</span>
 
-              <b>${item.quantity}</b>
-
-              <button
-                data-plus="${product.id}"
-                style="
-                  width:28px;
-                  height:28px;
-                  border:1px solid #ddd;
-                  background:#fff;
-                  border-radius:6px;
-                "
-              >
-                +
-              </button>
-
-            </div>
+            <button
+              onclick="changeQuantity(${product.id}, 1)"
+            >
+              +
+            </button>
 
           </div>
 
-          <button
-            class="remove-item"
-            data-remove="${product.id}"
-            aria-label="Remove"
-          >
-            ×
-          </button>
-
         </div>
-      `;
-    })
-    .join("");
+
+
+        <button
+          class="cart-remove"
+          onclick="removeFromCart(${product.id})"
+        >
+          REMOVE
+        </button>
+
+      </div>
+
+    `;
+
+  }).join("");
 }
 
-function openCartDrawer() {
-  if (!cartDrawer) return;
+
+/* =========================================================
+   CART OPEN / CLOSE
+   ========================================================= */
+
+function openCart() {
 
   cartDrawer.classList.add("open");
+  cartOverlay.classList.add("show");
 
-  overlay?.classList.add("show");
-
-  document.body.style.overflow = "hidden";
 }
 
-function closeCartDrawer() {
-  cartDrawer?.classList.remove("open");
 
-  overlay?.classList.remove("show");
+function closeCart() {
 
-  document.body.style.overflow = "";
+  cartDrawer.classList.remove("open");
+  cartOverlay.classList.remove("show");
+
 }
+
+
+cartBtn.addEventListener("click", openCart);
+
+cartClose.addEventListener("click", closeCart);
+
+cartOverlay.addEventListener("click", closeCart);
+
 
 /* =========================================================
    PRODUCT MODAL
    ========================================================= */
 
-function openProductModal(productId) {
-  const product = products.find(p => p.id === productId);
+function openProduct(productId) {
 
-  if (!product || !productModal) return;
+  const product =
+    products.find(item => item.id === productId);
 
-  currentModalProduct = product;
+  if (!product) return;
 
-  modalImage.src = product.image;
-  modalImage.alt = product.name;
 
-  modalCategory.textContent =
-    `${product.category} • ${product.type}`;
+  productModalContent.innerHTML = `
 
-  modalName.textContent = product.name;
+    <div class="product-modal-content">
 
-  modalPrice.textContent =
-    formatPrice(product.price);
+      <div class="modal-product-image">
 
-  modalDescription.textContent =
-    product.description;
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+        >
+
+      </div>
+
+
+      <div class="modal-product-info">
+
+        <span>${product.type}</span>
+
+        <h2>${product.name}</h2>
+
+        <div class="modal-price">
+          ${formatPrice(product.price)}
+        </div>
+
+        <p>
+          ${product.description}
+        </p>
+
+        <button
+          class="modal-add"
+          onclick="addToCart(${product.id}); closeProductModal();"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
 
   productModal.classList.add("show");
 
-  document.body.style.overflow = "hidden";
 }
+
 
 function closeProductModal() {
-  productModal?.classList.remove("show");
 
-  document.body.style.overflow = "";
+  productModal.classList.remove("show");
 
-  currentModalProduct = null;
 }
+
+
+productModalClose.addEventListener(
+  "click",
+  closeProductModal
+);
+
+
+productModal.addEventListener("click", event => {
+
+  if (event.target === productModal) {
+    closeProductModal();
+  }
+
+});
+
 
 /* =========================================================
    CHECKOUT
    ========================================================= */
 
-function getCustomerDetails() {
-  return {
-    name: document.getElementById("customerName")?.value.trim(),
-    phone: document.getElementById("customerPhone")?.value.trim(),
-    city: document.getElementById("customerCity")?.value.trim(),
-    address: document.getElementById("customerAddress")?.value.trim()
-  };
-}
-
 function openCheckout() {
+
   if (!cart.length) {
-    alert(
-      "Your bag is empty. Please add a product first."
-    );
+    alert("Please add a watch to your bag first.");
     return;
   }
 
-  if (!checkoutModal) {
-    alert("Checkout system is not available.");
-    return;
-  }
 
   checkoutModal.classList.add("show");
 
-  document.body.style.overflow = "hidden";
 }
 
-function closeCheckoutModal() {
-  checkoutModal?.classList.remove("show");
 
-  document.body.style.overflow = "";
+function closeCheckout() {
+
+  checkoutModal.classList.remove("show");
+
 }
 
-function buildWhatsAppMessage(customer) {
-  const subtotal = getCartSubtotal();
-  const total = subtotal + DELIVERY_FEE;
+
+checkoutBtn.addEventListener(
+  "click",
+  openCheckout
+);
+
+
+checkoutClose.addEventListener(
+  "click",
+  closeCheckout
+);
+
+
+checkoutModal.addEventListener("click", event => {
+
+  if (event.target === checkoutModal) {
+    closeCheckout();
+  }
+
+});
+
+
+/* =========================================================
+   WHATSAPP ORDER
+   ========================================================= */
+
+function createWhatsAppMessage(customer = {}) {
+
+  const subtotal =
+    getCartTotal();
+
+  const total =
+    subtotal + DELIVERY_FEE;
+
 
   let message =
-    "Assalam-o-Alaikum AK Collection,%0A%0A";
+    `*AK COLLECTION — NEW ORDER*%0A%0A`;
 
-  message +=
-    "*NEW ORDER REQUEST*%0A%0A";
 
   cart.forEach(item => {
-    const product = products.find(
-      p => p.id === item.id
-    );
 
-    if (product) {
-      message +=
-        `• ${encodeURIComponent(product.name)} × ${item.quantity} — ${encodeURIComponent(formatPrice(product.price * item.quantity))}%0A`;
-    }
+    const product =
+      products.find(p => p.id === item.id);
+
+    if (!product) return;
+
+
+    const lineTotal =
+      product.price * item.quantity;
+
+
+    message +=
+      `• ${product.name} x${item.quantity} — ${formatPrice(lineTotal)}%0A`;
+
   });
 
-  message +=
-    `%0A*Products Total:* ${encodeURIComponent(formatPrice(subtotal))}%0A`;
 
   message +=
-    `*Delivery / Advance:* ${encodeURIComponent(formatPrice(DELIVERY_FEE))}%0A`;
+    `%0A*Product Total:* ${formatPrice(subtotal)}`;
 
   message +=
-    `*TOTAL PAYABLE:* ${encodeURIComponent(formatPrice(total))}%0A%0A`;
+    `%0A*Delivery / Advance:* ${formatPrice(DELIVERY_FEE)}`;
 
   message +=
-    "*CUSTOMER DETAILS*%0A";
+    `%0A*Grand Total:* ${formatPrice(total)}`;
 
-  message +=
-    `Name: ${encodeURIComponent(customer.name)}%0A`;
 
-  message +=
-    `Phone: ${encodeURIComponent(customer.phone)}%0A`;
+  if (customer.name) {
 
-  message +=
-    `City: ${encodeURIComponent(customer.city)}%0A`;
+    message +=
+      `%0A%0A*CUSTOMER DETAILS*`;
 
-  message +=
-    `Address: ${encodeURIComponent(customer.address)}%0A%0A`;
+    message +=
+      `%0AName: ${customer.name}`;
 
-  message +=
-    "Please confirm my order.";
+    message +=
+      `%0APhone: ${customer.phone}`;
+
+    message +=
+      `%0ACity: ${customer.city}`;
+
+    message +=
+      `%0AAddress: ${customer.address}`;
+
+  }
+
 
   return message;
 }
 
-function sendOrderToWhatsApp() {
+
+/* DIRECT WHATSAPP */
+
+directWhatsapp.addEventListener("click", () => {
+
   if (!cart.length) {
-    alert(
-      "Your bag is empty. Please add a product first."
-    );
+    alert("Please add a watch to your bag first.");
     return;
   }
 
-  const customer = getCustomerDetails();
+
+  const message =
+    createWhatsAppMessage();
+
+
+  window.open(
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+    "_blank"
+  );
+
+});
+
+
+/* CHECKOUT FORM */
+
+checkoutForm.addEventListener("submit", event => {
+
+  event.preventDefault();
+
+
+  const customer = {
+
+    name:
+      document.getElementById("customerName").value.trim(),
+
+    phone:
+      document.getElementById("customerPhone").value.trim(),
+
+    city:
+      document.getElementById("customerCity").value.trim(),
+
+    address:
+      document.getElementById("customerAddress").value.trim()
+
+  };
+
+
+  const message =
+    createWhatsAppMessage(customer);
+
+
+  window.open(
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+    "_blank"
+  );
+
+});
+
+
+/* SECOND WHATSAPP BUTTON */
+
+checkoutWhatsapp.addEventListener("click", () => {
+
+  const customer = {
+
+    name:
+      document.getElementById("customerName").value.trim(),
+
+    phone:
+      document.getElementById("customerPhone").value.trim(),
+
+    city:
+      document.getElementById("customerCity").value.trim(),
+
+    address:
+      document.getElementById("customerAddress").value.trim()
+
+  };
+
 
   if (
     !customer.name ||
@@ -729,367 +810,92 @@ function sendOrderToWhatsApp() {
     !customer.city ||
     !customer.address
   ) {
-    alert(
-      "Please fill in your name, phone, city and complete address."
-    );
+
+    alert("Please fill all customer details first.");
     return;
+
   }
+
 
   const message =
-    buildWhatsAppMessage(customer);
+    createWhatsAppMessage(customer);
 
-  const url =
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
-  window.open(url, "_blank");
+  window.open(
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+    "_blank"
+  );
 
-  showOrderSuccess();
+});
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+function openMobileMenu() {
+
+  mobileMenu.classList.add("open");
+  menuOverlay.classList.add("show");
+
 }
 
-function showOrderSuccess() {
-  const checkoutBox =
-    checkoutModal?.querySelector(".checkout-box");
 
-  if (!checkoutBox) return;
+function closeMobileMenu() {
 
-  checkoutBox.innerHTML = `
-    <button
-      class="checkout-close"
-      id="successClose"
-    >
-      ×
-    </button>
+  mobileMenu.classList.remove("open");
+  menuOverlay.classList.remove("show");
 
-    <div
-      style="
-        text-align:center;
-        padding:35px 20px;
-      "
-    >
-
-      <div
-        style="
-          width:65px;
-          height:65px;
-          margin:0 auto 18px;
-          border-radius:50%;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          background:#111;
-          color:#fff;
-          font-size:30px;
-        "
-      >
-        ✓
-      </div>
-
-      <span class="eyebrow">
-        AK COLLECTION
-      </span>
-
-      <h2
-        style="
-          font-family:Georgia,serif;
-          margin:12px 0;
-        "
-      >
-        Order Ready
-      </h2>
-
-      <p
-        style="
-          color:#666;
-          line-height:1.7;
-        "
-      >
-        Your order details have been prepared
-        for WhatsApp. Please send the message
-        on WhatsApp to confirm your order.
-      </p>
-
-      <button
-        class="confirm-order"
-        id="successDone"
-        style="margin-top:20px"
-      >
-        DONE
-      </button>
-
-    </div>
-  `;
-
-  document
-    .getElementById("successClose")
-    ?.addEventListener(
-      "click",
-      closeCheckoutModal
-    );
-
-  document
-    .getElementById("successDone")
-    ?.addEventListener(
-      "click",
-      closeCheckoutModal
-    );
 }
 
-/* =========================================================
-   PRODUCT BUTTONS
-   ========================================================= */
 
-productsGrid?.addEventListener(
+menuBtn.addEventListener(
   "click",
-  event => {
-    const add =
-      event.target.closest("[data-add]");
-
-    const view =
-      event.target.closest("[data-view]");
-
-    if (add) {
-      const productId =
-        Number(add.dataset.add);
-
-      addToCart(productId);
-
-      add.textContent = "ADDED ✓";
-
-      setTimeout(() => {
-        add.textContent = "ADD TO CART";
-      }, 900);
-    }
-
-    if (view) {
-      openProductModal(
-        Number(view.dataset.view)
-      );
-    }
-  }
+  openMobileMenu
 );
 
-/* =========================================================
-   CART BUTTONS
-   ========================================================= */
-
-cartItems?.addEventListener(
+mobileClose.addEventListener(
   "click",
-  event => {
-    const remove =
-      event.target.closest("[data-remove]");
-
-    const plus =
-      event.target.closest("[data-plus]");
-
-    const minus =
-      event.target.closest("[data-minus]");
-
-    if (remove) {
-      removeFromCart(
-        Number(remove.dataset.remove)
-      );
-    }
-
-    if (plus) {
-      changeQuantity(
-        Number(plus.dataset.plus),
-        1
-      );
-    }
-
-    if (minus) {
-      changeQuantity(
-        Number(minus.dataset.minus),
-        -1
-      );
-    }
-  }
+  closeMobileMenu
 );
 
-/* =========================================================
-   CART OPEN / CLOSE
-   ========================================================= */
-
-bagButton?.addEventListener(
+menuOverlay.addEventListener(
   "click",
-  openCartDrawer
+  closeMobileMenu
 );
 
-closeCart?.addEventListener(
-  "click",
-  closeCartDrawer
-);
 
-overlay?.addEventListener(
-  "click",
-  closeCartDrawer
-);
+document
+  .querySelectorAll(".mobile-menu a")
+  .forEach(link => {
 
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-searchToggle?.addEventListener(
-  "click",
-  () => {
-    searchBox?.classList.toggle("show");
-
-    if (
-      searchBox?.classList.contains("show")
-    ) {
-      searchInput?.focus();
-    } else {
-      if (searchInput) {
-        searchInput.value = "";
-      }
-
-      renderProducts();
-    }
-  }
-);
-
-searchInput?.addEventListener(
-  "input",
-  () => {
-    const query =
-      searchInput.value.trim().toLowerCase();
-
-    if (!query) {
-      renderProducts();
-      return;
-    }
-
-    const filtered =
-      products.filter(product =>
-        `${product.name} ${product.category} ${product.type}`
-          .toLowerCase()
-          .includes(query)
-      );
-
-    renderProducts(filtered);
-  }
-);
-
-/* =========================================================
-   PRODUCT MODAL EVENTS
-   ========================================================= */
-
-closeModal?.addEventListener(
-  "click",
-  closeProductModal
-);
-
-productModal?.addEventListener(
-  "click",
-  event => {
-    if (event.target === productModal) {
-      closeProductModal();
-    }
-  }
-);
-
-modalAdd?.addEventListener(
-  "click",
-  () => {
-    if (!currentModalProduct) return;
-
-    addToCart(
-      currentModalProduct.id
+    link.addEventListener(
+      "click",
+      closeMobileMenu
     );
 
-    modalAdd.textContent =
-      "ADDED TO BAG ✓";
+  });
 
-    setTimeout(() => {
-      modalAdd.textContent =
-        "ADD TO BAG";
-    }, 1000);
-  }
-);
-
-/* =========================================================
-   CHECKOUT EVENTS
-   ========================================================= */
-
-checkoutButton?.addEventListener(
-  "click",
-  openCheckout
-);
-
-whatsappOrderButton?.addEventListener(
-  "click",
-  () => {
-    openCheckout();
-  }
-);
-
-closeCheckout?.addEventListener(
-  "click",
-  closeCheckoutModal
-);
-
-checkoutModal?.addEventListener(
-  "click",
-  event => {
-    if (event.target === checkoutModal) {
-      closeCheckoutModal();
-    }
-  }
-);
-
-checkoutForm?.addEventListener(
-  "submit",
-  event => {
-    event.preventDefault();
-
-    sendOrderToWhatsApp();
-  }
-);
-
-checkoutWhatsapp?.addEventListener(
-  "click",
-  sendOrderToWhatsApp
-);
-
-/* =========================================================
-   CONTACT WHATSAPP
-   ========================================================= */
-
-whatsappContact?.addEventListener(
-  "click",
-  () => {
-    const message = encodeURIComponent(
-      "Assalam-o-Alaikum AK Collection, I would like to know more about your watches."
-    );
-
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
-      "_blank"
-    );
-  }
-);
 
 /* =========================================================
    ESC KEY
    ========================================================= */
 
-document.addEventListener(
-  "keydown",
-  event => {
-    if (event.key === "Escape") {
-      closeCartDrawer();
-      closeProductModal();
-      closeCheckoutModal();
-    }
-  }
-);
+document.addEventListener("keydown", event => {
+
+  if (event.key !== "Escape") return;
+
+  closeCart();
+  closeProductModal();
+  closeCheckout();
+  closeMobileMenu();
+
+});
+
 
 /* =========================================================
-   START
+   INITIALIZE
    ========================================================= */
 
-setupBrandLogo();
-setupMobileMenu();
-setupCategories();
 renderProducts();
-updateCart();
+renderCart();

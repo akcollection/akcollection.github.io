@@ -40,14 +40,13 @@
     <div class="header-inner">
       <button class="menu-button" aria-label="Menu"><span></span><span></span><span></span></button>
 
-      <a href="#home" class="brand">
-        <span class="brand-mark"><i>♛</i><b>AK</b></span>
-        <span class="brand-divider"></span>
-        <span class="brand-name">
-          <strong>AK COLLECTION</strong>
-          <small>PREMIUM WATCHES &amp; ACCESSORIES</small>
-        </span>
-      </a>
+     <a href="#home" class="brand">
+  <img src="ak-logo.png" alt="AK Collection" class="ak-logo">
+  <span class="brand-name">
+    <strong>AK COLLECTION</strong>
+    <small>PREMIUM WATCHES &amp; ACCESSORIES</small>
+  </span>
+</a> 
 
       <nav class="nav">
         <a class="active" href="#home">HOME</a>
@@ -140,7 +139,43 @@
       <div><span>♜</span><div><strong>SECURE PAYMENTS</strong><small>Multiple Payment Options</small></div></div>
       <div><span>▣</span><div><strong>FAST &amp; RELIABLE DELIVERY</strong><small>Across Pakistan</small></div></div>
       <div><span>◉</span><div><strong>24/7 CUSTOMER SUPPORT</strong><small>We’re Here to Help</small></div></div>
-    </section>
+    </section> 
+    <section class="category-section">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">SHOP BY CATEGORY</span>
+      <h2>AK COLLECTION</h2>
+    </div>
+  </div>
+
+  <div class="category-grid">
+
+    <a href="#collection" class="category-card">
+      <span>⌚</span>
+      <strong>WATCHES</strong>
+      <small>Premium Timepieces</small>
+    </a>
+
+    <a href="#collection" class="category-card">
+      <span>◆</span>
+      <strong>WALLETS</strong>
+      <small>Coming Soon</small>
+    </a>
+
+    <a href="#collection" class="category-card">
+      <span>♢</span>
+      <strong>CAP</strong>
+      <small>Coming Soon</small>
+    </a>
+
+    <a href="#collection" class="category-card">
+      <span>◇</span>
+      <strong>BRACELETS</strong>
+      <small>Coming Soon</small>
+    </a>
+
+  </div>
+</section> 
 
     <section class="collection section" id="collection">
       <div class="section-heading">
@@ -200,7 +235,30 @@
   <aside class="cart-drawer" id="cartDrawer">
     <div class="cart-header"><div><span class="eyebrow">YOUR SELECTION</span><h3>Your Bag</h3></div><button id="closeCart" aria-label="Close">×</button></div>
     <div class="cart-items" id="cartItems"><div class="empty-cart"><p>Your bag is empty.</p><button class="btn btn-dark" id="continueShopping">Continue Shopping</button></div></div>
-    <div class="cart-footer"><div class="cart-total"><span>Total</span><strong id="cartTotal">PKR 0</strong></div><button class="checkout-button" id="checkoutButton">Order on WhatsApp →</button><small>Cash on Delivery available</small></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total</span><strong id="cartTotal">PKR 0</strong></div><div class="cart-fee">
+  <span>Delivery / Advance</span>
+  <strong>PKR 250</strong>
+</div>
+
+<div class="cart-total">
+  <span>Product Total</span>
+  <strong id="cartTotal">PKR 0</strong>
+</div>
+
+<div class="cart-grand-total">
+  <span>Total Payable</span>
+  <strong id="cartGrandTotal">PKR 250</strong>
+</div>
+
+<button class="checkout-button" id="checkoutButton">
+  PLACE ORDER →
+</button>
+
+<button class="whatsapp-order-button" id="whatsappOrderButton">
+  ORDER DIRECTLY ON WHATSAPP
+</button>
+
+<small>Cash on Delivery available</small></div>
   </aside>
 
   <div class="product-modal" id="productModal">
@@ -209,7 +267,62 @@
       <div class="modal-image"><img id="modalImage" src="" alt=""></div>
       <div class="modal-info"><span class="eyebrow" id="modalCategory">WATCH</span><h2 id="modalName">Watch</h2><p class="modal-price" id="modalPrice">PKR 0</p><p id="modalDescription">Premium watch from AK Collection.</p><button class="modal-add" id="modalAdd">Add to Bag</button></div>
     </div>
+  </div> 
+  <div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-box">
+
+    <button class="checkout-close" id="closeCheckout">×</button>
+
+    <span class="eyebrow">AK COLLECTION</span>
+
+    <h2>Complete Your Order</h2>
+
+    <p class="checkout-note">
+      Delivery / Advance Fee: <strong>PKR 250</strong>
+    </p>
+
+    <form id="checkoutForm">
+
+      <input
+        type="text"
+        id="customerName"
+        placeholder="Full Name"
+        required
+      >
+
+      <input
+        type="tel"
+        id="customerPhone"
+        placeholder="Phone Number"
+        required
+      >
+
+      <input
+        type="text"
+        id="customerCity"
+        placeholder="City"
+        required
+      >
+
+      <textarea
+        id="customerAddress"
+        placeholder="Complete Delivery Address"
+        rows="4"
+        required
+      ></textarea>
+
+      <button type="submit" class="confirm-order">
+        CONFIRM ORDER →
+      </button>
+
+    </form>
+
+    <button class="checkout-whatsapp" id="checkoutWhatsapp">
+      CONFIRM &amp; ORDER ON WHATSAPP
+    </button>
+
   </div>
+</div>
 
   <script src="script.js"></script>
 </body>

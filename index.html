@@ -3,148 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>AK Collection | Premium Watches</title>
-
-  <meta
-    name="description"
-    content="AK Collection — Premium luxury watches delivered across Pakistan."
-  >
-
-  <link rel="stylesheet" href="style.css?v=20">
+  <meta name="description" content="AK Collection — Premium luxury watches delivered across Pakistan.">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
-
 <body>
-
   <div class="announcement-bar"><span>100% QUALITY CHECKED GUARANTEE</span></div>
-
-  <div class="shipping-bar">
-    <span>FREE DELIVERY ON ALL ORDERS</span><span>•</span><span>PREMIUM WATCH COLLECTION</span><span>•</span><span>24/7 CUSTOMER SUPPORT</span>
-  </div>
+  <div class="shipping-bar"><span>FREE DELIVERY ON ALL ORDERS</span><span>•</span><span>PREMIUM WATCH COLLECTION</span><span>•</span><span>24/7 CUSTOMER SUPPORT</span></div>
 
   <header class="main-header">
     <div class="header-main">
       <button class="header-search" id="searchBtn" aria-label="Search"><span class="search-icon"></span></button>
-      <a href="#home" class="header-logo">
-        <img src="ak-logo.png" alt="AK Collection">
-        <div class="header-logo-text"><strong>AK COLLECTION</strong><small>PREMIUM WATCHES</small></div>
-      </a>
-      <div class="header-right">
-        <button class="header-user" aria-label="Account">♙</button>
-        <button class="header-wishlist" aria-label="Wishlist">☆</button>
-        <button class="header-bag" id="cartBtn" aria-label="Shopping Bag">♧<span id="cartCount">0</span></button>
-      </div>
+      <a href="#home" class="header-logo"><img src="ak-logo.png" alt="AK Collection"><div class="header-logo-text"><strong>AK COLLECTION</strong><small>PREMIUM WATCHES</small></div></a>
+      <div class="header-right"><button class="header-user" aria-label="Account">♙</button><button class="header-wishlist" aria-label="Wishlist">☆</button><button class="header-bag" id="cartBtn" aria-label="Shopping Bag">♧<span id="cartCount">0</span></button></div>
     </div>
-
-    <nav class="main-nav">
-      <a href="#collection">WATCHES</a><a href="#collection">NEW ARRIVALS</a><a href="#collection">BEST SELLERS</a><a href="#collection">LUXURY WATCHES</a><a href="#collection">CLASSIC WATCHES</a><a href="#collection">MODERN WATCHES</a>
-    </nav>
-
-    <div class="mobile-header-row">
-      <button id="menuBtn" class="mobile-menu-btn">☰</button>
-      <span>AK COLLECTION</span>
-      <button id="mobileCartBtn" class="mobile-cart-btn">BAG<b id="mobileCartCount">0</b></button>
-    </div>
+    <nav class="main-nav"><a href="#collection">WATCHES</a><a href="#collection">NEW ARRIVALS</a><a href="#collection">BEST SELLERS</a><a href="#collection">LUXURY WATCHES</a><a href="#collection">CLASSIC WATCHES</a><a href="#collection">MODERN WATCHES</a></nav>
+    <div class="mobile-header-row"><button id="menuBtn" class="mobile-menu-btn">☰</button><span>AK COLLECTION</span><button id="mobileCartBtn" class="mobile-cart-btn" onclick="openCart()">BAG<b id="mobileCartCount">0</b></button></div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose">×</button>
-    <img src="ak-logo.png" alt="AK Collection" class="mobile-menu-logo">
-    <strong>AK COLLECTION</strong>
-    <a href="#home">HOME</a><a href="#collection">WATCHES</a><a href="#collection">NEW ARRIVALS</a><a href="#collection">BEST SELLERS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a>
-  </div>
+  <div class="mobile-menu" id="mobileMenu"><button class="mobile-close" id="mobileClose">×</button><img src="ak-logo.png" alt="AK Collection" class="mobile-menu-logo"><strong>AK COLLECTION</strong><a href="#home">HOME</a><a href="#collection">WATCHES</a><a href="#collection">NEW ARRIVALS</a><a href="#collection">BEST SELLERS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></div>
   <div class="menu-overlay" id="menuOverlay"></div>
 
   <main>
-    <section class="luxury-hero" id="home">
-      <div class="hero-background"></div>
-      <div class="hero-copy">
-        <span>AK COLLECTION</span>
-        <h1>TIMELESS<em>WATCHES</em></h1>
-        <p>Premium designs made to complete your presence.</p>
-        <a href="#collection" class="hero-shop-btn">SHOP COLLECTION</a>
-      </div>
-      <div class="hero-watches">
-        <div class="hero-watch watch-one"><img src="blue-leather.jpg" alt="Premium Watch"></div>
-        <div class="hero-watch watch-two"><img src="blue-dial.jpg" alt="Premium Watch"></div>
-        <div class="hero-watch watch-three"><img src="silver-chronograph.jpg" alt="Premium Watch"></div>
-        <div class="hero-watch watch-four"><img src="white-dial.jpg" alt="Premium Watch"></div>
-      </div>
-      <div class="hero-bottom-text">PREMIUM WATCH COLLECTION</div>
-    </section>
+    <section class="luxury-hero" id="home"><div class="hero-background"></div><div class="hero-copy"><span>AK COLLECTION</span><h1>TIMELESS<em>WATCHES</em></h1><p>Premium designs made to complete your presence.</p><a href="#collection" class="hero-shop-btn">SHOP COLLECTION</a></div><div class="hero-watches"><div class="hero-watch watch-one"><img src="blue-leather.jpg" alt="Premium Watch"></div><div class="hero-watch watch-two"><img src="blue-dial.jpg" alt="Premium Watch"></div><div class="hero-watch watch-three"><img src="silver-chronograph.jpg" alt="Premium Watch"></div><div class="hero-watch watch-four"><img src="white-dial.jpg" alt="Premium Watch"></div></div><div class="hero-bottom-text">PREMIUM WATCH COLLECTION</div></section>
 
-    <section class="trust-bar">
-      <div><strong>QUALITY CHECKED</strong><span>Every watch inspected</span></div>
-      <div><strong>FREE DELIVERY</strong><span>Across Pakistan</span></div>
-      <div><strong>SECURE ORDERING</strong><span>Easy WhatsApp ordering</span></div>
-      <div><strong>24/7 SUPPORT</strong><span>Always here to help</span></div>
-    </section>
+    <section class="trust-bar"><div><strong>QUALITY CHECKED</strong><span>Every watch inspected</span></div><div><strong>FREE DELIVERY</strong><span>Across Pakistan</span></div><div><strong>SECURE ORDERING</strong><span>Easy WhatsApp ordering</span></div><div><strong>24/7 SUPPORT</strong><span>Always here to help</span></div></section>
 
-    <section class="collection" id="collection">
-      <div class="collection-header">
-        <div><span>AK COLLECTION</span><h2>FEATURED WATCHES</h2></div>
-        <div class="filters">
-          <button class="filter active" data-filter="All">ALL</button>
-          <button class="filter" data-filter="Luxury">LUXURY</button>
-          <button class="filter" data-filter="Classic">CLASSIC</button>
-          <button class="filter" data-filter="Modern">MODERN</button>
-        </div>
-      </div>
-      <div class="search-box" id="searchBox">
-        <input type="text" id="searchInput" placeholder="Search watches..."><button id="closeSearch">×</button>
-      </div>
-      <div class="products-grid" id="productsGrid"></div>
-    </section>
+    <section class="collection" id="collection"><div class="collection-header"><div><span>AK COLLECTION</span><h2>FEATURED WATCHES</h2></div><div class="filters"><button class="filter active" data-filter="All">ALL</button><button class="filter" data-filter="Luxury">LUXURY</button><button class="filter" data-filter="Classic">CLASSIC</button><button class="filter" data-filter="Modern">MODERN</button></div></div><div class="search-box" id="searchBox"><input type="text" id="searchInput" placeholder="Search watches..."><button id="closeSearch">×</button></div><div class="products-grid" id="productsGrid"></div></section>
 
-    <section class="about" id="about">
-      <span>ABOUT AK COLLECTION</span>
-      <h2>YOUR TIME. <em>YOUR STYLE.</em></h2>
-      <p>Discover premium watches selected for people who appreciate timeless design, elegant details and confident everyday style.</p>
-    </section>
-
-    <section class="contact" id="contact">
-      <div><span>HAVE A QUESTION?</span><h2>TALK TO US</h2><p>Order your favourite watch directly through WhatsApp.</p></div>
-      <a href="https://wa.me/923709039540" target="_blank" class="contact-btn">WHATSAPP US</a>
-    </section>
+    <section class="about" id="about"><span>ABOUT AK COLLECTION</span><h2>YOUR TIME. <em>YOUR STYLE.</em></h2><p>Discover premium watches selected for people who appreciate timeless design, elegant details and confident everyday style.</p></section>
+    <section class="contact" id="contact"><div><span>HAVE A QUESTION?</span><h2>TALK TO US</h2><p>Order your favourite watch directly through WhatsApp.</p></div><a href="https://wa.me/923709039540" target="_blank" class="contact-btn">WHATSAPP US</a></section>
   </main>
 
-  <footer>
-    <div class="footer-logo"><img src="ak-logo.png" alt="AK Collection"><div><strong>AK COLLECTION</strong><span>PREMIUM WATCHES</span></div></div>
-    <p>© 2026 AK Collection. All rights reserved.</p>
-  </footer>
+  <footer><div class="footer-logo"><img src="ak-logo.png" alt="AK Collection"><div><strong>AK COLLECTION</strong><span>PREMIUM WATCHES</span></div></div><p>© 2026 AK Collection. All rights reserved.</p></footer>
 
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-header"><div><span>AK COLLECTION</span><h3>YOUR BAG</h3></div><button id="cartClose">×</button></div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-footer">
-      <div class="cart-row"><span>PRODUCT TOTAL</span><strong id="cartTotal">PKR 0</strong></div>
-      <div class="cart-row"><span>DELIVERY / ADVANCE</span><strong>PKR 250</strong></div>
-      <div class="cart-grand"><span>GRAND TOTAL</span><strong id="grandTotal">PKR 0</strong></div>
-      <button id="checkoutBtn" class="checkout-btn">PLACE ORDER</button>
-      <button id="directWhatsapp" class="cart-whatsapp">ORDER ON WHATSAPP</button>
-    </div>
-  </aside>
+  <aside class="cart-drawer" id="cartDrawer"><div class="cart-header"><div><span>AK COLLECTION</span><h3>YOUR BAG</h3></div><button id="cartClose">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-footer"><div class="cart-row"><span>PRODUCT TOTAL</span><strong id="cartTotal">PKR 0</strong></div><div class="cart-row"><span>DELIVERY / ADVANCE</span><strong>PKR 250</strong></div><div class="cart-grand"><span>GRAND TOTAL</span><strong id="grandTotal">PKR 0</strong></div><button id="checkoutBtn" class="checkout-btn">PLACE ORDER</button><button id="directWhatsapp" class="cart-whatsapp">ORDER ON WHATSAPP</button></div></aside>
   <div class="cart-overlay" id="cartOverlay"></div>
 
-  <div class="product-modal" id="productModal">
-    <div class="product-modal-box"><button class="modal-close" id="productModalClose">×</button><div id="productModalContent"></div></div>
-  </div>
+  <div class="product-modal" id="productModal"><div class="product-modal-box"><button class="modal-close" id="productModalClose">×</button><div id="productModalContent"></div></div></div>
 
-  <div class="checkout-modal" id="checkoutModal">
-    <div class="checkout-box">
-      <button class="checkout-close" id="checkoutClose">×</button>
-      <span>AK COLLECTION</span><h2>COMPLETE YOUR ORDER</h2>
-      <p class="checkout-note">Delivery / advance fee: <strong>PKR 250</strong></p>
-      <form id="checkoutForm">
-        <input type="text" id="customerName" placeholder="Your Name" required>
-        <input type="tel" id="customerPhone" placeholder="Phone Number" required>
-        <input type="text" id="customerCity" placeholder="City" required>
-        <textarea id="customerAddress" placeholder="Complete Delivery Address" required></textarea>
-        <button type="submit" class="confirm-order">CONFIRM ORDER</button>
-      </form>
-      <button id="checkoutWhatsapp" class="checkout-whatsapp">CONFIRM THROUGH WHATSAPP</button>
-    </div>
-  </div>
+  <div class="checkout-modal" id="checkoutModal"><div class="checkout-box"><button class="checkout-close" id="checkoutClose">×</button><span>AK COLLECTION</span><h2>COMPLETE YOUR ORDER</h2><p class="checkout-note">Delivery / advance fee: <strong>PKR 250</strong></p><form id="checkoutForm"><input type="text" id="customerName" placeholder="Your Name" required><input type="tel" id="customerPhone" placeholder="Phone Number" required><input type="text" id="customerCity" placeholder="City" required><textarea id="customerAddress" placeholder="Complete Delivery Address" required></textarea><button type="submit" class="confirm-order">CONFIRM ORDER</button></form><button id="checkoutWhatsapp" class="checkout-whatsapp">CONFIRM THROUGH WHATSAPP</button></div></div>
 
   <script src="script.js"></script>
 </body>

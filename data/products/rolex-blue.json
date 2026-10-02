@@ -1,0 +1,8 @@
+{
+  "name": "Rolex Blue",
+  "category": "Watches",
+  "price": 2999,
+  "image": "blue-dial.jpg",
+  "description": "Elegant blue dial watch designed for a clean and timeless look.",
+  "active": true
+}

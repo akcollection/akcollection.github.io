@@ -1,0 +1,1 @@
+Products and website settings are managed here by Pages CMS. The live website can still be edited directly in index.html, style.css and script.js when advanced code changes are needed.

@@ -1,0 +1,99 @@
+media:
+  input: media
+  output: /media
+  extensions: [jpg, jpeg, png, webp, gif]
+  rename: safe
+
+content:
+  - name: site
+    label: Website Settings
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - name: announcement
+        label: Announcement Bar
+        type: string
+      - name: shipping
+        label: Shipping Bar
+        type: string
+      - name: hero_label
+        label: Hero Label
+        type: string
+      - name: hero_title
+        label: Hero Title
+        type: string
+      - name: hero_emphasis
+        label: Hero Emphasis
+        type: string
+      - name: hero_text
+        label: Hero Text
+        type: text
+      - name: hero_button
+        label: Hero Button
+        type: string
+      - name: about_label
+        label: About Label
+        type: string
+      - name: about_title
+        label: About Title
+        type: string
+      - name: about_emphasis
+        label: About Emphasis
+        type: string
+      - name: about_text
+        label: About Text
+        type: text
+      - name: contact_label
+        label: Contact Label
+        type: string
+      - name: contact_title
+        label: Contact Title
+        type: string
+      - name: contact_text
+        label: Contact Text
+        type: text
+
+  - name: products
+    label: Products
+    type: collection
+    path: data/products
+    format: json
+    filename: "{name}.json"
+    fields:
+      - name: name
+        label: Product Name
+        type: string
+        required: true
+      - name: category
+        label: Category
+        type: select
+        options:
+          - label: Watches
+            value: Watches
+          - label: Bracelets
+            value: Bracelets
+          - label: Wallets
+            value: Wallets
+          - label: Caps
+            value: Caps
+      - name: price
+        label: Price (PKR)
+        type: number
+        required: true
+      - name: image
+        label: Product Image
+        type: image
+      - name: description
+        label: Description
+        type: text
+      - name: active
+        label: Show Product
+        type: boolean
+
+settings:
+  hide: true
+  content:
+    merge: true
+  commit:
+    identity: user

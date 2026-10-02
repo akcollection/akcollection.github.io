@@ -1,0 +1,8 @@
+{
+  "name": "Hublot Skelton",
+  "category": "Watches",
+  "price": 4000,
+  "image": "silver-chronograph.jpg",
+  "description": "Modern skeleton-inspired design with a strong everyday presence.",
+  "active": true
+}

@@ -17,7 +17,7 @@
 
   function normalizeImage(path) {
     if (!path) return '';
-    if (/^(https?:)?\\//.test(path)) return path;
+    if (/^(https?:)?\/\//.test(path)) return path;
     return path.indexOf('media/') === 0 ? '/' + path : path;
   }
 
@@ -25,7 +25,7 @@
   var listing = getText('https://api.github.com/repos/akcollection/akcollection.github.io/contents/data/products?ref=main');
   if (listing) {
     try {
-      JSON.parse(listing).filter(function (f) { return /\\.json$/i.test(f.name); }).forEach(function (f) {
+      JSON.parse(listing).filter(function (f) { return /\.json$/i.test(f.name); }).forEach(function (f) {
         var raw = getText('data/products/' + f.name);
         if (!raw) return;
         try {
@@ -33,7 +33,7 @@
           if (p.active === false) return;
           products.push({
             id: hashId(f.name),
-            name: p.name || f.name.replace(/\\.json$/i, ''),
+            name: p.name || f.name.replace(/\.json$/i, ''),
             type: p.category || 'Watches',
             price: Number(p.price) || 0,
             image: normalizeImage(p.image),

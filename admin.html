@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AK Collection — Store Manager</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="wrap">
+<header><div><small>AK COLLECTION</small><h1>Store Manager</h1></div><button id="logout" class="ghost">Log out</button></header>
+<section id="login" class="card">
+<h2>Connect your GitHub</h2><p>This private-style editor saves changes directly to your AK Collection repository. Your token stays only in this browser tab and is never written into the website files.</p>
+<label>GitHub Personal Access Token <input id="token" type="password" placeholder="github_pat_..." autocomplete="off"></label>
+<button id="connect" class="primary">CONNECT</button>
+<p class="hint">Use a fine-grained token for this repository with <b>Contents: Read and write</b>. Never send your token to anyone.</p>
+</section>
+<main id="app" hidden>
+<nav class="tabs"><button data-tab="products" class="active">Products</button><button data-tab="site">Website Text</button><button data-tab="categories">Categories</button></nav>
+<section id="products" class="panel active"><div class="toolbar"><h2>Products</h2><button id="newProduct" class="primary">+ Add Product</button></div><div id="productsList"></div></section>
+<section id="site" class="panel"><h2>Website Text</h2><form id="siteForm" class="formgrid"></form><button id="saveSite" class="primary">Save Website Text</button></section>
+<section id="categories" class="panel"><h2>Categories</h2><p>Edit the four main store categories. Product category dropdowns use this list.</p><div id="categoryList"></div><button id="saveCategories" class="primary">Save Categories</button></section>
+</main>
+<div id="status"></div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

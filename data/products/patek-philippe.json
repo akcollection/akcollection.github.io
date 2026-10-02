@@ -1,0 +1,8 @@
+{
+  "name": "Patek Philippe",
+  "category": "Watches",
+  "price": 2800,
+  "image": "white-dial.jpg",
+  "description": "Clean white dial design with a refined luxury-inspired appearance.",
+  "active": true
+}

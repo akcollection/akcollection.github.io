@@ -1,6 +1,30 @@
 [
-  {"id":"caps","name":"CAPS","image":"media/categories/caps.webp","link":"#collection"},
-  {"id":"glasses","name":"GLASSES","image":"media/categories/glasses.webp","link":"#collection"},
-  {"id":"watches","name":"WATCHES","image":"media/categories/watches.webp","link":"#collection"},
-  {"id":"bracelets","name":"BRACELETS","image":"media/categories/bracelets.webp","link":"#collection"}
+  {
+    "id": "caps",
+    "name": "CAPS",
+    "image": "media/categories/caps.png",
+    "link": "#collection",
+    "label": "CAPS"
+  },
+  {
+    "id": "glasses",
+    "name": "GLASSES",
+    "image": "media/categories/glasses.png",
+    "link": "#collection",
+    "label": "GLASSES"
+  },
+  {
+    "id": "watches",
+    "name": "WATCHES",
+    "image": "media/categories/watches.png",
+    "link": "#collection",
+    "label": "WATCHES"
+  },
+  {
+    "id": "bracelets",
+    "name": "BRACELETS",
+    "image": "media/categories/bracelets.png",
+    "link": "#collection",
+    "label": "BRACELETS"
+  }
 ]

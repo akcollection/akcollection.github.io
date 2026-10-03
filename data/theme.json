@@ -48,5 +48,6 @@
   "contact_background": "#ffffff",
   "hero_background_enabled": true,
   "hero_accessories_enabled": true,
-  "show_header": true
+  "show_header": true,
+  "hero_watch1": "media/site/hero_watch1-1791030876279.jpg"
 }

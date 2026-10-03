@@ -1,0 +1,4 @@
+/* AK COLLECTION — accessory hero image */
+.hero-accessories{position:absolute;z-index:4;right:5vw;top:50%;transform:translateY(-50%);width:min(44vw,620px);height:auto;object-fit:contain;filter:drop-shadow(0 18px 35px rgba(0,0,0,.35));pointer-events:none}
+@media(max-width:699px){.luxury-hero{min-height:620px;height:calc(100dvh - 52px)}.hero-copy{left:20px;right:20px;top:18%;transform:none;max-width:none;text-align:left}.hero-copy>span{font-size:6px;letter-spacing:2.6px;margin-bottom:12px}.hero-copy h1{font-size:47px;letter-spacing:-2px}.hero-copy p{max-width:245px;margin-top:16px;font-size:9px}.hero-shop-btn{min-height:40px;margin-top:17px;padding:0 19px;font-size:6.5px}.hero-accessories{right:-8%;top:auto;bottom:5%;transform:none;width:116%;max-width:none}.hero-bottom-text{left:20px;bottom:18px;font-size:5.5px;letter-spacing:2px}.hero-bottom-text:before{width:24px;margin-right:8px}}
+@media(min-width:700px){.hero-copy{max-width:430px}.hero-accessories{opacity:.98}}

@@ -1,6 +1,6 @@
 [
-  {"name":"Watches","label":"WATCHES","image":"blue-leather.jpg"},
-  {"name":"Bracelets","label":"BRACELETS","image":"blue-dial.jpg"},
-  {"name":"Wallets","label":"WALLETS","image":"silver-set.jpg"},
-  {"name":"Caps","label":"CAPS","image":"white-dial.jpg"}
+  {"id":"caps","name":"CAPS","image":"media/categories/caps.webp","link":"#collection"},
+  {"id":"glasses","name":"GLASSES","image":"media/categories/glasses.webp","link":"#collection"},
+  {"id":"watches","name":"WATCHES","image":"media/categories/watches.webp","link":"#collection"},
+  {"id":"bracelets","name":"BRACELETS","image":"media/categories/bracelets.webp","link":"#collection"}
 ]

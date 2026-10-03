@@ -7,7 +7,7 @@
 <header><div><small>AK COLLECTION</small><h1>Visual Store Editor</h1><p class="sub">Edit your website without code — text, photos, banner, theme, products and categories.</p></div><button id="logout" class="ghost">Log out</button></header>
 <section id="login" class="card"><h2>Secure connection</h2><p>Your fine-grained GitHub token is used only in this browser tab and is never saved to the website.</p><label>GitHub Personal Access Token<input id="token" type="password" placeholder="github_pat_..." autocomplete="off"></label><button id="connect" class="primary">CONNECT</button><p class="hint">Repository: <b>akcollection/akcollection.github.io</b> · Permission needed: Contents → Read and write.</p></section>
 <main id="app" hidden>
-<nav class="tabs"><button data-tab="dashboard" class="active">Dashboard</button><button data-tab="site">Text & Sections</button><button data-tab="media">Photos & Banner</button><button data-tab="categories">Categories</button><button data-tab="products">Products</button><button data-tab="theme">Theme & Layout</button><button data-tab="advanced">Advanced</button></nav>
+<nav class="tabs"><button type="button" data-tab="dashboard" class="active">Dashboard</button><button type="button" data-tab="site">Text & Sections</button><button type="button" data-tab="media">Photos & Banner</button><button type="button" data-tab="categories">Categories</button><button type="button" data-tab="products">Products</button><button type="button" data-tab="theme">Theme & Layout</button><button type="button" data-tab="advanced">Advanced</button></nav>
 <section id="dashboard" class="panel active"><div class="hero-card"><div><span>AK COLLECTION</span><h2>Everything in one place</h2><p>Use the sections above to change your live store. You can upload new images, crop them, change text, manage products, and control mobile/desktop sizing.</p></div></div><div class="quick-grid"><button data-go="site"><b>✎ Text</b><small>Headings, labels & buttons</small></button><button data-go="media"><b>▣ Photos</b><small>Banner, logo & hero images</small></button><button data-go="categories"><b>◇ Categories</b><small>Add, remove, rename & photo</small></button><button data-go="products"><b>◈ Products</b><small>Products, prices & photos</small></button><button data-go="theme"><b>⚙ Theme</b><small>Colors, sizes & mobile layout</small></button></div></section>
 <section id="site" class="panel"><div class="section-head"><div><span>CONTENT</span><h2>Text & Sections</h2></div><button id="saveSite" class="primary">Save Changes</button></div><form id="siteForm" class="formgrid"></form></section>
 <section id="media" class="panel"><div class="section-head"><div><span>MEDIA</span><h2>Photos & Banner</h2><p>Upload an image, crop it, then save. You can replace the same image later.</p></div></div><div id="mediaList" class="media-grid"></div></section>
@@ -15,4 +15,18 @@
 <section id="products" class="panel"><div class="section-head"><div><span>STORE</span><h2>Products</h2><p>Full product control: name, category, price, description, photo and visibility.</p></div><button id="newProduct" class="primary">+ Add Product</button></div><div id="productsList"></div></section>
 <section id="theme" class="panel"><div class="section-head"><div><span>DESIGN</span><h2>Theme & Layout</h2><p>These controls change the live storefront without editing CSS.</p></div><button id="saveTheme" class="primary">Save Theme</button></div><form id="themeForm" class="formgrid"></form></section>
 <section id="advanced" class="panel"><div class="section-head"><div><span>POWER USER</span><h2>Advanced File Editor</h2><p>Optional: direct access to the main website files for custom changes. This is the code-level fallback.</p></div></div><div class="filebar"><select id="fileSelect"><option value="index.html">index.html</option><option value="style.css">style.css</option><option value="theme-overrides.css">theme-overrides.css</option><option value="script.js">script.js</option><option value="cms-loader.js">cms-loader.js</option></select><button id="loadFile" class="ghost">Load</button><button id="saveFile" class="primary">Save File</button></div><textarea id="fileEditor" class="codebox" spellcheck="false"></textarea></section>
-</main><div id="status"></div></div><script src="admin.js"></script></body></html>
+</main><div id="status"></div></div><script>
+(function(){
+  function showTab(name){
+    document.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===name);});
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('active',p.id===name);});
+    var p=document.getElementById(name); if(p) p.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.tabs button,[data-go]');
+    if(!b)return;
+    var name=b.getAttribute('data-tab')||b.getAttribute('data-go');
+    if(name) showTab(name);
+  });
+})();
+</script><script src="admin.js"></script></body></html>
